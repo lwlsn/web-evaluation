@@ -1,0 +1,76 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="js/dynamic.js"></script>
+	<script src="js/app.js"></script>
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<title> User Study </title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body onload="Application.init()" style="margin:5px;padding:5px;" >
+	<div class="header" id="topbar">
+		<img src="logo.gif" id="MATLogo" alt=""><img src="QMLogo_small.png" id="QMLogoSmall" alt=""><img src="QMLogo.png" id="QMLogo" alt="">
+		<h1 id="headerText">Evaluating Models of Affective Response </h1>
+
+	</div>
+
+
+	<div class="main" id="app-1">
+
+
+
+		<p id="message1" class="message-tag"> {{ message0 }} </p>
+
+		<p id="message2" class="message-tag"> {{message1 }} <p>
+
+		<p id="message3" class="message-tag"> {{ message2 }} </p>
+
+		<p id="message4" class="message-tag"> {{ message3 }} </p>
+
+		<p>
+			<div class="audio-player">
+
+			<audio id="audio" class="audio-tag" controls>
+				<source src="assets/HV-LA.wav" id="track" type="audio/wav">
+					Your browser does not support the audio element!
+				</audio>
+			</div>
+
+		</p>
+
+			<div  class="application" onload="Application.init()" style="margin:0px; padding:0px;">
+				<canvas width="320" height="320" id="canvas">	
+				<!-- 	<span id="marker" ></span>	 -->
+					Your browser does not support the HTML5 Canvas
+				</canvas>
+				<div style="font-size:40px;font-weight:bold" id="label"> </div>
+		</div>
+
+
+
+		<div class="navi">
+			 <p>
+				<button id="next-button" v-on:click="setNewValue()" onclick="buttonPressed()" class	="button" value="hide"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
+			</p>
+		</div>
+
+		
+
+	</div>
+
+
+	<script type="text/javascript">
+	
+	</script>
+
+
+
+
+	<script src="js/main.js"></script>
+</body>
+</html>
