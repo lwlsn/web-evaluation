@@ -1,0 +1,241 @@
+
+
+/* Top level */
+
+html {
+	height:100%;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+main {
+	margin: 0px;
+	padding:0px;
+}
+
+
+
+
+/* Scroll Bar */
+/*.main::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+    .frame::-webkit-scrollbar:vertical {
+        width: 10px;
+        background: #666;
+    }
+
+    .frame::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+
+.main::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.main::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 8px;
+} */
+
+/* Text */
+
+h1 {
+	font-family: 'Helvetica';
+    font-weight: 100;
+    font-style: normal;
+    font-size: 40px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+p {
+    width: 100%;
+    /*max-width: 1000px;*/
+    text-align: justify;
+}
+
+
+/* Page Layout */ 
+
+.page {
+	display: none;
+}
+
+.header {
+    box-sizing: border-box;
+    height: 80px;
+    width: 100%;
+    max-width: 1500px;
+    margin: auto;
+    border-bottom: 3px solid black;
+    background-color: white;
+}
+
+#MATLogo {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    padding-right: 10px;
+    float: left;
+}
+
+#QMLogo {
+    height: 70px;
+    float: right;
+    display: inline;
+    padding: 5px 10px;
+}
+
+#QMLogoSmall {
+    height: 70px;
+    float: right;
+    display: inline-block;
+    padding: 5px 10px;
+    display: inline;
+}
+
+
+/* main */
+
+.main {
+	box-sizing: border-box;
+    width: 100%;
+    max-width: 1500px;
+    display: block;
+    margin: auto;
+    height: 600px;
+    background-color: white;
+    padding: 50px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+
+/* Footer , naviagation button */
+.navi {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 10px;
+    height: 80px;
+    max-width: 1500px;
+    display: block;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    border-top: 3px solid black;
+}
+
+/* Navigation Button */
+.button, .progress {
+    font-family: 'StencilCreek-50';
+    font-weight: 100;
+    font-style: normal;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    line-height: 50px;
+    margin: auto;
+    display: inline-block;
+}
+
+.button {
+    border: 2px solid black;
+    margin: -20px -50px; 
+    position:relative;
+    top:50%; 
+    left:50%;
+}
+
+.button:hover {
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 5px 5px #666;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: #666;
+    color: white;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    box-shadow: 5px 5px;
+}
+
+.audio-player {
+    padding-top:25px;
+}
+
+.audio-tag { 
+  position:relative;
+  width: 600px; 
+  box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+  border-radius: 90px;
+  transform: scale(1.05);
+  top:50%;
+  left:28%;
+
+}
+
+
+
+/* HTML canvas positioning */
+
+canvas {
+	position: relative;
+	z-index:0;
+	visibility: 'visible';
+    padding: 10px;
+    left:37%;
+}
+}
+
+
+.application {
+	margin:0px; 
+	padding:0px;
+}
+
+
+.marker {
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	display: block; 
+	background: #FF0000;
+	width: 100px;
+	height: 100px
+}
+
+
+/* vue controlled text positioning*/
+
+.message-tag {
+	text-align: center;
+}
