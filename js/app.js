@@ -169,8 +169,18 @@ var Application = {
       // const x = event.clientX - rect.left;
       // const y = event.clientY - rect.top;
 
-  
       // this.label.innerHTML = this.findMood(x, y);
+    },
+
+    // on page refresh, reset marker.. 
+    resetMarker (canvas, event) {
+
+      // const rect = canvas .getBoundingClientRect();
+      this.marker = {
+          x: 0,
+          y: 0
+       };
+
     },
 
 

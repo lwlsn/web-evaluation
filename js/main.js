@@ -4,6 +4,8 @@
 var count = 0;
 
 //messages to be changed on updating click.. 
+
+
 var paragraph1 = [
 "Please test the audio below",
 "", 
@@ -22,10 +24,10 @@ var paragraph3 = [
 var app = new Vue ({
   el:'#app-1', 
   data: {
-    message0: "We would like to invite you to be part of this research about musical pattern and emotion. Participation in the study is optional. If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it. Please read the following information carefully before you decide to take part; this will tell you why the research is being done and what you will be asked to do if you take part.", 
-    message1: "This research will look at evaluating listeners’ perception of music: examining affective/emotional response to short musical phrases. Study participants will initially be asked a few demographic questions designed to assess musical background and engagement levels.   Participants will be presented with an interface/webpage to play short audio clips. The participants are asked to listen to all the clips presented for the duration of the listening test. This should be completed using good quality headphones and in a quiet space, free from interruption. ",
-    message2: "After listening, participants are asked to give an evaluative rating of the perceived emotional content to the audio they have listened to. To do so, they will be asked to place a slider on a 2-dimensional grid and rate the piece they have listened to and rate them in terms of how  positive/negative they are and how high/low energy they are.   ",
-    message3: "Please contact me by email if there is anything unclear or if you would like more information. "
+    message0: " Welcome to the test section.  The next section will explain what you need to do to complete the test.", 
+    message1:  "First, please complete the check the audio on the next page to test the output of your headphones and adjust to a comfortable level." ,
+    message2: " Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. ",
+    message3: " Once this is completed, please complete the test in a quiet environment, free from distractions."
   }, 
   methods: {
     setNewValue: function() {
@@ -75,12 +77,13 @@ function shuffle(a) {
 
 //Change the audio file onclick.. 
 var a=0;
+var audio = document.getElementById('audio');
+audio.src = "assets/sine.wav";
+audio.style.visibility = "visible";
 // contents of audio buffer .. 
 var audioFiles = ["assets/excite.wav", "assets/sad.wav", "assets/calm.wav", "assets/angry.wav"];
-
 function updateAudio() {
-  var audio= document.getElementById('audio');
-
+  // var audio= document.getElementById('audio');
   if (a == 0) {
     audio.src = "assets/sine.wav"; 
     audio.style.visibility = "visible";
@@ -131,12 +134,18 @@ function toggleCanvas() {
 
     b+=1;
 
+
+    if (b >= 2 && b <=5) {
+    document.getElementById('page-ref').innerHTML = (b-1) + "/4"; 
+    }
+
   }
 
 
 function buttonPressed() {
   updateAudio();
   toggleCanvas();
+  Application.resetMarker();
 }
 
 
