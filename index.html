@@ -1,395 +1,443 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta charset="utf-8">
+	<meta charset="utf-8">
 
+	<!-- Integrate Firebase into project -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
 
-<!-- Integrate Firebase into project -->
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
+	<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<script src="js/dynamic.js"></script>
-<script src="js/app.js"></script>
-<!-- development version, includes helpful console warnings -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<title> User Study </title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Include js scripts-->
+	<script src="js/dynamic.js"></script>
+	<script src="js/app.js"></script>
+
+	<!--Vue development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<!-- Include jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+	<title> User Study </title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body onload="setup()" style="margin:5px;padding:5px;" >
-<div class="header" id="topbar">
-	<img src="logo.gif" id="MATLogo" alt=""><img src="QMLogo_small.png" id="QMLogoSmall" alt=""><img src="QMLogo.png" id="QMLogo" alt="">
-	<h1 id="headerText">Evaluating Models of Affective Response </h1>
 
-</div>
-
-
-<!-- introduction pages -->
-
-<div class="page" id="study-introduction">
-	<div class = "main" id="main1"> 
-		<h2>Introduction to the Study - Evaluating Models of Affective Response through Listener Perception of Rhythmic Patterns</h2>
-
-		<p> We would like to invite you to be part of this research about musical pattern and emotion. Participation in the study is optional. If you choose not to take part there won’t be any disadvantages for you and you will hear no more about it.</p>
-
-		<p> Please read the following information carefully before you decide to take part; this will tell you why the research is being done and what you will be asked to do if you take part. Please contact me by email <a href=mailto:elizabeth.wilson@qmul.ac.uk">elizabeth.wilson@qmul.ac.uk</a> if there is anything unclear or if you would like more information.  </p>
-
-		<p> This research will look at evaluating listeners’ perception of music: examining affective/emotional response to short musical phrases. You will initially be asked a few demographic questions designed to assess your musical background and engagement levels.</p>
-
-		<p>	 You will be then presented with the test that allows you to play short audio clips. You are asked to listen to all the clips presented for the duration of the listening test. This should be completed using good quality headphones and in a quiet space, free from interruption.  </p>
-
-		<p> After listening, you will be asked to give an evaluative rating of the perceived emotional content to the audio. To do so, you be asked to place a slider on a 2-dimensional grid and rate the pieces listened to and rate them in terms of how  positive/negative they are and how high/low energy they are.  </p>
-	</div>
-
-
-	<div class="navi">
-		<p>
-		   <button id="next-button"  onclick="nextPage()" class="button" value="hide"> Next </button>
-		   <a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
-		   <span id="page-ref" class="page-ref"> </span>
-	   </p>
-   </div>
-</div>
-
-
-<!-- consent pages -->
-
-<div class="page" id="consent-pages">
-
-	<div class="main" id="main2">
-		<h2>  Consent data </h2>
-
-		<p> Please provide your consent to the following statements to proceed with this study:</p>
-
-		<p>
-			<label class="container" id="consent">
-				I agree that the research project named above has been explained to me to my satisfaction in verbal and/or written form.
-				<input type="checkbox" name="consent1" form="survey" value="yes">
-				<span class="checkmark"></span>
-			</label>
-		</p>
-
-		<p>
-			<label class="container" id="consent">
-				I understand that if I decide at any other time during the research that I no longer wish to participate in the study, I can notify the researchers and be withdrawn from it immediately.
-				<input type="checkbox" name="consent2" form="survey" value="yes">
-				<span class="checkmark"></span>
-			</label>
-		</p>
-
-
-		<p>
-			<label class="container" id="consent">
-				I have read both the notes written above and the Information Sheet about the project, and understand what the research study involves
-				<input type="checkbox" name="consent3" form="survey" value="yes">
-				<span class="checkmark"></span>
-			</label>
-		</p>
-
-
-		<p>
-			<label class="container" id="consent">
-				I agree to take part in the study, which will include use of my personal data. The data will be anonymised, stored securely and not shared with any third parties.
-				<input type="checkbox" name="consent4" form="survey" value="yes">
-				<span class="checkmark"></span>
-			</label>
-		</p>
-
-		<p>
-
-			<span id="errorMessage" name="consentChecks" hidden > 
-				Please ensure all items are checked to continue with the study. 
-			</span>
-		</p>
+<body onload="setup()" style="margin:5px;padding:5px;">
+	<div class="header" id="topbar">
+		<img src="logo.gif" id="MATLogo" alt=""><img src="QMLogo_small.png" id="QMLogoSmall" alt=""><img
+			src="QMLogo.png" id="QMLogo" alt="">
+		<h1 id="headerText">Evaluating Models of Affective Response </h1>
 
 	</div>
 
-	<div class="navi">
-		<p> 
-			<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
-			<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
-			<span id="page-ref" class="page-ref"> </span>
-		</p>
-	</div>
 
-</div>
+	<!-- introduction pages -->
 
+	<div class="page" id="study-introduction">
+		<div class="main" id="main1">
+			<h2>Introduction to the Study - Evaluating Models of Affective Response through Listener Perception of
+				Rhythmic Patterns</h2>
 
+			<p> We would like to invite you to be part of this research about musical pattern and emotion. Participation
+				in the study is optional. If you choose not to take part there won’t be any disadvantages for you and
+				you will hear no more about it.</p>
 
+			<p> Please read the following information carefully before you decide to take part; this will tell you why
+				the research is being done and what you will be asked to do if you take part. Please contact me by email
+				<a href=mailto:elizabeth.wilson@qmul.ac.uk">elizabeth.wilson@qmul.ac.uk</a> if there is anything unclear
+				or if you would like more information. </p>
 
-<!-- goldsmiths msi page -->
+			<p> This research will look at evaluating listeners’ perception of music: examining affective/emotional
+				response to short musical phrases. You will initially be asked a few demographic questions designed to
+				assess your musical background and engagement levels.</p>
 
-<div class="page" id="gold-msi">
+			<p> You will be then presented with the test that allows you to play short audio clips. You are asked to
+				listen to all the clips presented for the duration of the listening test. This should be completed using
+				good quality headphones and in a quiet space, free from interruption. </p>
 
-	<div class="main">
-		<h2> Questionnaire </h2>
+			<p> After listening, you will be asked to give an evaluative rating of the perceived emotional content to
+				the audio. To do so, you be asked to place a slider on a 2-dimensional grid and rate the pieces listened
+				to and rate them in terms of how positive/negative they are and how high/low energy they are. </p>
 
-		<p>Please answer the following questions as accurately as possible:</p>
 
-		<p>In the past twelve months, I have attended :</p>
 
-		<p>
-			<div>
-				<input type="radio" 
-				name="events" value="0-1">
-				<label for="choice1"> 0-1 </label>
+			<input type="password" name="password"></input>
 
-				<input type="radio" 
-				name="events" value="2-3">
-				<label for="choice1"> 2-3 </label>
+			<br>
 
-				<input type="radio" 
-				name="events" value="4-6">
-				<label for="choice1"> 4-6 </label>
+			<span id="errorMessage" class="errorText" hidden>
+				Please fix the following errors:</span>
+			<ul>
+				<li id="needsNumber" class="errorText" hidden>
+					The password must contain a number</li>
 
-				<input type="radio" 
-				name="events" value="7-10">
-				<label for="choice1"> 7-10 </label>
+				<li id="atLeast10Chars" class="errorText" hidden>
+					The passsword must be at least 10 characters long</li>
+			</ul>
 
-				<input type="radio" 
-				name="events" value="11+">
-				<label for="choice1"> 11+ </label>
-				live music events. 
+			<span id="successMessage" hidden>The password is okay!</span>
 
-			</div>
-		</p>
+			<p>
 
+				<button name="submit">Validate Password</button>
 
+				<script>
 
-		<p> I listen attentively to music for:</p>
+					$("button[name='submit']").click(function () {
+						var passwordField = $("input[name='password']");
+						var password = passwordField.val();
+						var isOkay = true;
+						if (password.length < 10) {
+							isOkay = false;
+							$('#atLeast10Chars').show();
+						}
+						if (/\d/.test(password) == false) {
+							isOkay = false;
+							$('#needsNumber').show();
+						}
+						if (isOkay == false) {
+							$('#successMessage').hide();
+							$('#errorMessage').show();
+							passwordField.removeClass("goodBox").addClass("errorBox");
+						}
+						else {
+							$('.errorText').hide();
+							$('#successMessage').show();
+							passwordField.removeClass("errorBox").addClass("goodBox");
+						}
+						return false;
+					});
 
-		<p> 
-			<div>
 
-				<input type="radio" 
-				name="listening" value="0-15">
-				<label for="choice1"> 0-15 min </label>
+				</script>
 
-				<input type="radio" 
-				name="listening" value="15-30">
-				<label for="choice1"> 15-30 min </label>
-
-				<input type="radio" 
-				name="listening" value="30-60">
-				<label for="choice1"> 30-60 min </label>
-
-				<input type="radio" 
-				name="listening" value="1-2">
-				<label for="choice1"> 1-2 hrs </label>
-
-				<input type="radio" 
-				name="listening" value="2-4">
-				<label for="choice1"> 2-4 hrs </label>
-
-
-				<input type="radio" 
-				name="listening" value="4+">
-				<label for="choice1"> 4 + hrs </label>
-
-				daily. 
-
-			</div>
-		</p>
-
-
-		<p> I would not consider myself a musician: </p>
-
-		<p>
-			<div>
-
-				<input type="radio" 
-				name="musician" value="-2">
-				<label for="choice1"> Strongly Disagree </label>
-
-				<input type="radio"
-				name="listening" value="-1">
-				<label for="choice1"> Disagree </label>
-
-				<input type="radio" 
-				name="listening" value="0">
-				<label for="choice1"> Neither agree or disagree </label>
-
-				<input type="radio" 
-				name="listening" value="1">
-				<label for="choice1"> Agree </label>
-
-				<input type="radio" 
-				name="listening" value="2">
-				<label for="choice1"> Strongly Agree </label>
-
-
-			</div>
-		</p>
-
-
-		<p>	Pieces of music rarely evoke emotions for me: </p>
-		<p>
-			<div>
-
-
-				<input type="radio" 
-				name="emotions1" value="-2">
-				<label for="choice1"> Strongly Disagree </label>
-
-				<input type="radio"
-				name="emotions1" value="-1">
-				<label for="choice1"> Disagree </label>
-
-				<input type="radio" 
-				name="emotions1" value="0">
-				<label for="choice1"> Neither agree or disagree </label>
-
-				<input type="radio" 
-				name="emotions1" value="1">
-				<label for="choice1"> Agree </label>
-
-				<input type="radio" 
-				name="emotions1" value="2">
-				<label for="choice1"> Strongly Agree </label>
-
-
-			</div>
-
-		</p>
-
-
-		<p>	Music can evoke my memories of past people and places: </p>
-
-		<p>
-			<div>
-
-
-				<input type="radio" 
-				name="emotions2" value="-2">
-				<label for="choice1"> Strongly Disagree </label>
-
-				<input type="radio"
-				name="emotions2" value="-1">
-				<label for="choice1"> Disagree </label>
-
-				<input type="radio" 
-				name="emotions2" value="0">
-				<label for="choice1"> Neither agree or disagree </label>
-
-				<input type="radio" 
-				name="emotions2" value="1">
-				<label for="choice1"> Agree </label>
-
-				<input type="radio" 
-				name="emotions2" value="2">
-				<label for="choice1"> Strongly Agree </label>
-
-			</div>
-		</p>
-
-
-		<p>I am able to talk about the emotions that a piece of music evokes for me: </p>
-		<p>
-			<div>
-
-
-				<input type="radio" 
-				name="emotions3" value="-2">
-				<label for="choice1"> Strongly Disagree </label>
-
-				<input type="radio"
-				name="emotions3" value="-1">
-				<label for="choice1"> Disagree </label>
-
-				<input type="radio" 
-				name="emotions3" value="0">
-				<label for="choice1"> Neither agree or disagree </label>
-
-				<input type="radio" 
-				name="emotions3" value="1">
-				<label for="choice1"> Agree </label>
-
-				<input type="radio" 
-				name="emotions3" value="2">
-				<label for="choice1"> Strongly Agree </label>
-
-			</div>
-		</p>
-
-
-	</div>
-
-	<div class="navi">
-		<p> 
-			<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
-			<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
-			<span id="page-ref" class="page-ref"> </span>
-		</p>
-	</div>
-</div>
-
-
-
-
-<!-- test pages using vue to update text -->
-
-<div class="page" id="vue-pages">
-
-<div class="main" id="app-1" onload="Application.init()">
-
-
-	<p id="message1" class="message-tag"> {{ message0 }} </p>
-
-	<p id="message2" class="message-tag"> {{message1 }} <p>
-
-	<p id="message3" class="message-tag"> {{ message2 }} </p>
-
-	<p id="message4" class="message-tag"> {{ message3 }} </p>
-
-	<p>
-		<div class="audio-player" >
-
-		<audio id="audio" class="audio-tag" controls>
-			<source src="assets/HV-LA.wav" id="track" type="audio/wav">
-				Your browser does not support the audio element!
-			</audio>
 		</div>
 
-	</p>
 
-		<div  class="application" onload="Application.init()" style="margin:0px; padding:0px;">
-			<canvas width="320" height="320" id="canvas">	
-			<!-- 	<span id="marker" ></span>	 -->
-				Your browser does not support the HTML5 Canvas
-			</canvas>
-			<div style="font-size:40px;font-weight:bold" id="label"> </div>
+		<div class="navi">
+			<p>
+				<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
+				<span id="page-ref" class="page-ref"> </span>
+			</p>
+		</div>
+	</div>
+
+
+	<!-- consent pages -->
+
+	<div class="page" id="consent-pages">
+
+		<div class="main" id="main2">
+			<h2> Consent data </h2>
+
+			<p> Please provide your consent to the following statements to proceed with this study:</p>
+
+			<p>
+				<label class="container" id="consent">
+					I agree that the research project named above has been explained to me to my satisfaction in verbal
+					and/or written form.
+					<input type="checkbox" name="consent1" form="survey" value="yes">
+					<span class="checkmark"></span>
+				</label>
+			</p>
+
+			<p>
+				<label class="container" id="consent">
+					I understand that if I decide at any other time during the research that I no longer wish to
+					participate in the study, I can notify the researchers and be withdrawn from it immediately.
+					<input type="checkbox" name="consent2" form="survey" value="yes">
+					<span class="checkmark"></span>
+				</label>
+			</p>
+
+
+			<p>
+				<label class="container" id="consent">
+					I have read both the notes written above and the Information Sheet about the project, and understand
+					what the research study involves
+					<input type="checkbox" name="consent3" form="survey" value="yes">
+					<span class="checkmark"></span>
+				</label>
+			</p>
+
+
+			<p>
+				<label class="container" id="consent">
+					I agree to take part in the study, which will include use of my personal data. The data will be
+					anonymised, stored securely and not shared with any third parties.
+					<input type="checkbox" name="consent4" form="survey" value="yes">
+					<span class="checkmark"></span>
+				</label>
+			</p>
+
+			<p>
+
+				<span id="errorMessage" name="consentChecks" hidden>
+					Please ensure all items are checked to continue with the study.
+				</span>
+			</p>
+
+		</div>
+
+		<div class="navi">
+			<p>
+				<button id="next-button" onclick="buttonPressedDataCheck()" class="button" value="hide"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<span id="page-ref" class="page-ref"> </span>
+			</p>
+		</div>
+
 	</div>
 
 
 
-	<div class="navi">
-		 <p>
-			<button id="next-button" v-on:click="setNewValue()" onclick="buttonPressed()" class	="button" value="hide"> Next </button>
-			<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
-			<span id="page-ref" class="page-ref"> </span>
-		</p>
+
+	<!-- goldsmiths msi page -->
+
+	<div class="page" id="gold-msi">
+
+		<div class="main">
+			<h2> Questionnaire </h2>
+
+			<p>Please answer the following questions as accurately as possible:</p>
+
+			<p>In the past twelve months, I have attended :</p>
+
+			<p>
+				<div>
+					<input type="radio" name="events" value="0-1">
+					<label for="choice1"> 0-1 </label>
+
+					<input type="radio" name="events" value="2-3">
+					<label for="choice1"> 2-3 </label>
+
+					<input type="radio" name="events" value="4-6">
+					<label for="choice1"> 4-6 </label>
+
+					<input type="radio" name="events" value="7-10">
+					<label for="choice1"> 7-10 </label>
+
+					<input type="radio" name="events" value="11+">
+					<label for="choice1"> 11+ </label>
+					live music events.
+
+				</div>
+			</p>
+
+
+
+			<p> I listen attentively to music for:</p>
+
+			<p>
+				<div>
+
+					<input type="radio" name="listening" value="0-15">
+					<label for="choice1"> 0-15 min </label>
+
+					<input type="radio" name="listening" value="15-30">
+					<label for="choice1"> 15-30 min </label>
+
+					<input type="radio" name="listening" value="30-60">
+					<label for="choice1"> 30-60 min </label>
+
+					<input type="radio" name="listening" value="1-2">
+					<label for="choice1"> 1-2 hrs </label>
+
+					<input type="radio" name="listening" value="2-4">
+					<label for="choice1"> 2-4 hrs </label>
+
+
+					<input type="radio" name="listening" value="4+">
+					<label for="choice1"> 4 + hrs </label>
+
+					daily.
+
+				</div>
+			</p>
+
+
+			<p> I would not consider myself a musician: </p>
+
+			<p>
+				<div>
+
+					<input type="radio" name="musician" value="-2">
+					<label for="choice1"> Strongly Disagree </label>
+
+					<input type="radio" name="listening" value="-1">
+					<label for="choice1"> Disagree </label>
+
+					<input type="radio" name="listening" value="0">
+					<label for="choice1"> Neither agree or disagree </label>
+
+					<input type="radio" name="listening" value="1">
+					<label for="choice1"> Agree </label>
+
+					<input type="radio" name="listening" value="2">
+					<label for="choice1"> Strongly Agree </label>
+
+
+				</div>
+			</p>
+
+
+			<p> Pieces of music rarely evoke emotions for me: </p>
+			<p>
+				<div>
+
+
+					<input type="radio" name="emotions1" value="-2">
+					<label for="choice1"> Strongly Disagree </label>
+
+					<input type="radio" name="emotions1" value="-1">
+					<label for="choice1"> Disagree </label>
+
+					<input type="radio" name="emotions1" value="0">
+					<label for="choice1"> Neither agree or disagree </label>
+
+					<input type="radio" name="emotions1" value="1">
+					<label for="choice1"> Agree </label>
+
+					<input type="radio" name="emotions1" value="2">
+					<label for="choice1"> Strongly Agree </label>
+
+
+				</div>
+
+			</p>
+
+
+			<p> Music can evoke my memories of past people and places: </p>
+
+			<p>
+				<div>
+
+
+					<input type="radio" name="emotions2" value="-2">
+					<label for="choice1"> Strongly Disagree </label>
+
+					<input type="radio" name="emotions2" value="-1">
+					<label for="choice1"> Disagree </label>
+
+					<input type="radio" name="emotions2" value="0">
+					<label for="choice1"> Neither agree or disagree </label>
+
+					<input type="radio" name="emotions2" value="1">
+					<label for="choice1"> Agree </label>
+
+					<input type="radio" name="emotions2" value="2">
+					<label for="choice1"> Strongly Agree </label>
+
+				</div>
+			</p>
+
+
+			<p>I am able to talk about the emotions that a piece of music evokes for me: </p>
+			<p>
+				<div>
+
+
+					<input type="radio" name="emotions3" value="-2">
+					<label for="choice1"> Strongly Disagree </label>
+
+					<input type="radio" name="emotions3" value="-1">
+					<label for="choice1"> Disagree </label>
+
+					<input type="radio" name="emotions3" value="0">
+					<label for="choice1"> Neither agree or disagree </label>
+
+					<input type="radio" name="emotions3" value="1">
+					<label for="choice1"> Agree </label>
+
+					<input type="radio" name="emotions3" value="2">
+					<label for="choice1"> Strongly Agree </label>
+
+				</div>
+			</p>
+
+
+		</div>
+
+		<div class="navi">
+			<p>
+				<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<span id="page-ref" class="page-ref"> </span>
+			</p>
+		</div>
 	</div>
 
-	
-
-</div>
-
-
-</div>
-
-
-<script type="text/javascript">
-
-</script>
 
 
 
+	<!-- test pages using vue to update text -->
 
-<script src="js/main.js"></script>
+	<div class="page" id="vue-pages">
+
+		<div class="main" id="app-1" onload="Application.init()">
+
+
+			<p id="message1" class="message-tag"> {{ message0 }} </p>
+
+			<p id="message2" class="message-tag"> {{message1 }} <p>
+
+					<p id="message3" class="message-tag"> {{ message2 }} </p>
+
+					<p id="message4" class="message-tag"> {{ message3 }} </p>
+
+					<p>
+						<div class="audio-player">
+
+							<audio id="audio" class="audio-tag" controls>
+								<source src="assets/HV-LA.wav" id="track" type="audio/wav">
+								Your browser does not support the audio element!
+							</audio>
+						</div>
+
+					</p>
+
+					<div class="application" onload="Application.init()" style="margin:0px; padding:0px;">
+						<canvas width="320" height="320" id="canvas">
+							<!-- 	<span id="marker" ></span>	 -->
+							Your browser does not support the HTML5 Canvas
+						</canvas>
+						<div style="font-size:40px;font-weight:bold" id="label"> </div>
+					</div>
+
+
+
+					<div class="navi">
+						<p>
+							<button id="next-button" v-on:click="setNewValue()" onclick="buttonPressed()" class="button"
+								value="hide"> Next </button>
+							<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
+							<span id="page-ref" class="page-ref"> </span>
+						</p>
+					</div>
+
+
+
+		</div>
+
+
+	</div>
+
+
+	<script type="text/javascript">
+
+	</script>
+
+
+
+
+	<scrip t src="js/main.js"></script>
 </body>
+
 </html>

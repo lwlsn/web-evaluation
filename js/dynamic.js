@@ -6,7 +6,7 @@ let currentPage = 0;
 
  //  Firebase configuration -- hide api keys ? 
  var firebaseConfig = {
-  apiKey: //how to hide this?,
+  apiKey: "AIzaSyBF9mqWu9BHIvCI4iN_1SQxMXauNXIt21A",
   authDomain: "listening-study-1.firebaseapp.com",
   databaseURL: "https://listening-study-1.firebaseio.com",
   projectId: "listening-study-1",
@@ -119,6 +119,14 @@ function nextPage() {
       pages[i].style.display = "none"
     }
   }
+}
+
+
+function buttonPressedDataCheck() {
+  consent1 = document.getElementById('consent4'); 
+  console.log(consent1); 
+
+  nextPage();
 }
 
 
