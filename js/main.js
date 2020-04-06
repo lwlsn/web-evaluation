@@ -13,11 +13,26 @@ var paragraph1 = [
 ""]
 
 var paragraph2 = [
-"In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are.", 
-"Please listen to the audio clip below. Then using the interface provided, please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."]
-
+"Test 1/4", 
+"Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
 
 var paragraph3 = [
+  "Test 2/4", 
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph4 = [
+  "Test 3/4", 
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph5 = [
+  "Test 4/4",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var endParagraph = [
 "Thank you for your participation in this study.",
 "Your results have been submitted, goodbye!"]
 
@@ -25,9 +40,9 @@ var app = new Vue ({
   el:'#app-1', 
   data: {
     message0: " Welcome to the test section.  The next section will explain what you need to do to complete the test.", 
-    message1:  "First, please complete the check the audio on the next page to test the output of your headphones and adjust to a comfortable level." ,
-    message2: " Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. ",
-    message3: " Once this is completed, please complete the test in a quiet environment, free from distractions."
+    message1:  "First, please complete the audio check on the next page to test the output of your headphones and adjust to a comfortable level." ,
+    message2: " Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. Once this has been done, please complete the rest of the test in a quiet environment, free from distractions.",
+    message3: " In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are."
   }, 
   methods: {
     setNewValue: function() {
@@ -43,13 +58,25 @@ var app = new Vue ({
         this.message0 = paragraph2[0];
         this.message1 = paragraph2[1]; 
       }
-      else if (count >= 5) {
+      if (count == 2) {
         this.message0 = paragraph3[0];
         this.message1 = paragraph3[1];
+      }
+      if (count == 3) {
+        this.message0 = paragraph4[0];
+        this.message1 = paragraph4[1];
+      }
+      if (count == 4) {
+        this.message0 = paragraph5[0];
+        this.message1 = paragraph5[1];
+      }
+      else if (count >= 5) {
+        this.message0 = endParagraph[0];
+        this.message1 = endParagraph[1];
         var audio = document.getElementById('audio');
         audio.style.visibility="hidden";
-        var btn = document.getElementById('next-button');
-        btn.style.visibility="hidden";
+        var btnVue= $('#next-button-vue')
+        btnVue.hide();
       }
 
       count += 1;

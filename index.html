@@ -16,6 +16,8 @@
 	<!-- Include js scripts-->
 	<script src="js/dynamic.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/app2.js"></script>
+	<script src="js/config.js"></script>
 
 	<!--Vue development version, includes helpful console warnings -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -23,9 +25,11 @@
 	<!-- Include jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+	<!--- Study CSS outline-->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<title> User Study </title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 
 <body onload="setup()" style="margin:5px;padding:5px;">
@@ -65,64 +69,11 @@
 				the audio. To do so, you be asked to place a slider on a 2-dimensional grid and rate the pieces listened
 				to and rate them in terms of how positive/negative they are and how high/low energy they are. </p>
 
-
-
-			<input type="password" name="password"></input>
-
-			<br>
-
-			<span id="errorMessage" class="errorText" hidden>
-				Please fix the following errors:</span>
-			<ul>
-				<li id="needsNumber" class="errorText" hidden>
-					The password must contain a number</li>
-
-				<li id="atLeast10Chars" class="errorText" hidden>
-					The passsword must be at least 10 characters long</li>
-			</ul>
-
-			<span id="successMessage" hidden>The password is okay!</span>
-
-			<p>
-
-				<button name="submit">Validate Password</button>
-
-				<script>
-
-					$("button[name='submit']").click(function () {
-						var passwordField = $("input[name='password']");
-						var password = passwordField.val();
-						var isOkay = true;
-						if (password.length < 10) {
-							isOkay = false;
-							$('#atLeast10Chars').show();
-						}
-						if (/\d/.test(password) == false) {
-							isOkay = false;
-							$('#needsNumber').show();
-						}
-						if (isOkay == false) {
-							$('#successMessage').hide();
-							$('#errorMessage').show();
-							passwordField.removeClass("goodBox").addClass("errorBox");
-						}
-						else {
-							$('.errorText').hide();
-							$('#successMessage').show();
-							passwordField.removeClass("errorBox").addClass("goodBox");
-						}
-						return false;
-					});
-
-
-				</script>
-
 		</div>
-
 
 		<div class="navi">
 			<p>
-				<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
+				<button id="introduction-next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
 				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
 				<span id="page-ref" class="page-ref"> </span>
 			</p>
@@ -135,15 +86,16 @@
 	<div class="page" id="consent-pages">
 
 		<div class="main" id="main2">
-			<h2> Consent data </h2>
+			<h2> Consent data - Evaluating Models of Affective Response through Listener Perception of
+				Rhythmic Patterns </h2>
 
 			<p> Please provide your consent to the following statements to proceed with this study:</p>
 
 			<p>
 				<label class="container" id="consent">
-					I agree that the research project named above has been explained to me to my satisfaction in verbal
-					and/or written form.
-					<input type="checkbox" name="consent1" form="survey" value="yes">
+					I agree that the research project named above has been explained to me
+					to my satisfaction on the information page.
+					<input type="checkbox" id="consent1" form="survey" value="yes">
 					<span class="checkmark"></span>
 				</label>
 			</p>
@@ -151,8 +103,9 @@
 			<p>
 				<label class="container" id="consent">
 					I understand that if I decide at any other time during the research that I no longer wish to
-					participate in the study, I can notify the researchers and be withdrawn from it immediately.
-					<input type="checkbox" name="consent2" form="survey" value="yes">
+					participate in this study, I can notify the researchers through the email address provided
+					and be withdrawn from it immediately.
+					<input type="checkbox" id="consent2" form="survey" value="yes">
 					<span class="checkmark"></span>
 				</label>
 			</p>
@@ -160,9 +113,9 @@
 
 			<p>
 				<label class="container" id="consent">
-					I have read both the notes written above and the Information Sheet about the project, and understand
+					I have read the information page and understand
 					what the research study involves
-					<input type="checkbox" name="consent3" form="survey" value="yes">
+					<input type="checkbox" id="consent3" form="survey" value="yes">
 					<span class="checkmark"></span>
 				</label>
 			</p>
@@ -172,30 +125,153 @@
 				<label class="container" id="consent">
 					I agree to take part in the study, which will include use of my personal data. The data will be
 					anonymised, stored securely and not shared with any third parties.
-					<input type="checkbox" name="consent4" form="survey" value="yes">
+					<input type="checkbox" id="consent4" form="survey" value="yes">
 					<span class="checkmark"></span>
 				</label>
 			</p>
 
-			<p>
-
-				<span id="errorMessage" name="consentChecks" hidden>
-					Please ensure all items are checked to continue with the study.
-				</span>
-			</p>
 
 		</div>
 
 		<div class="navi">
 			<p>
-				<button id="next-button" onclick="buttonPressedDataCheck()" class="button" value="hide"> Next </button>
+				<button id="consent-button" class="button" value="hide"> Next </button>
 				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
 				<span id="page-ref" class="page-ref"> </span>
 			</p>
 		</div>
 
+		<script>
+			$('#consent-button').click(function () {
+				//array of booleans checking whether each val has been clicked or not.. 
+				var checkboxTicked = [($('#consent1').prop('checked')), ($('#consent2').prop('checked')),
+				($('#consent3').prop('checked')), ($('#consent4').prop('checked'))];
+				console.log(checkboxTicked[0], checkboxTicked[1], checkboxTicked[2], checkboxTicked[3]);
+
+				var isOkay = false; // set variable to false, only allow to refresh to next page in update to true.
+				// when all boxes checked, set condition to true
+				if (checkboxTicked[0] == true && checkboxTicked[1] == true && checkboxTicked[2] && checkboxTicked[3]) {
+					isOkay = true;
+				}
+				// when false alert and forbid users from commencing.. 
+				if (isOkay == false) {
+					alert('all data consent questions must be agreed to..')
+				} else {
+					nextPage();
+				}
+			})
+
+		</script>
+
+
+
 	</div>
 
+
+	<!-- Participant Information -->
+	<div class="page" id="participant-info">
+		<div class="main">
+			<h2> Participant Data Information </h2>
+			<p>I would best describe my current profession as: </p>
+			<!-- turn into dropdown list... -->
+			<p>
+				<div>
+					<input type="radio" name="employment" id="school" value="school">
+					<label id="at-school"> At School </label>
+
+					<input type="radio" name="employment" id="university" value="university">
+					<label id="at-university"> At University </label>
+
+					<input type="radio" name="employment" id="full-time" value="full-time">
+					<label id="full-time"> In Full-time Employment </label>
+
+					<input type="radio" name="employment" id="part-time" value="part-time">
+					<label id="part-time"> In Part-time Employment </label>
+
+					<input type="radio" name="employment" id="self" value="self">
+					<label id="self"> Self-Employed </label>
+
+					<input type="radio" name="employment" id="parent" value="parent">
+					<label id="parent"> Full-time Parent </label>
+
+					<input type="radio" name="employment" id="unemployed" value="unemployed">
+					<label id="unemployed"> Unemployed </label>
+
+					<input type="radio" name="employment" id="retired" value="retired">
+					<label id="retired"> Retired </label>
+
+				</div>
+			</p>
+
+
+
+			<p> My age is: </p>
+
+			<div id="age-radio">
+				<input type="radio" name="age" id="18-24" value="18-24">
+				<label id="18-24"> 18-24 </label>
+
+				<input type="radio" name="age" id="25-34" value="25-34">
+				<label id="25-34"> 25-34 </label>
+
+				<input type="radio" name="age" id="35-44" value="35-44">
+				<label id="35-44"> 35-44 </label>
+
+				<input type="radio" name="age" id="45-54" value="45-54">
+				<label id="45-54"> 45-54 </label>
+
+				<input type="radio" name="age" id="55-64" value="55-64">
+				<label id="55-64"> 55-64 </label>
+
+				<input type="radio" name="age" id="65+" value="65+">
+				<label id="65+"> 65+ </label>
+
+			</div>
+
+
+			<p> I would describe my gender as : </p>
+			<input type="text" id="gender-data" name="gender">
+			<label for="gender"> </label>
+
+			<!-- To choose from a dropdown list..? -->
+			<p> I would describe my nationality as : </p>
+			<input type="text" id="nationality-data" name="nationality">
+			<label for="nationality"> </label>
+
+
+			<p> The countr(ies) that I spent most of my formative years in was: </p>
+			<input type="text" id="formative-data" name="formative">
+			<label for="nationality"> </label>
+
+
+			<div class="submit">
+				<p>
+					<button id="submit-demographics" class="button" > Submit </button>
+				</p>
+			</div>
+
+			<!-- to-do, make this work -->
+			<!-- <script>
+				function deleteAfterClick() {
+					var demographicButton = document.getElementById("submit-demographics");
+					demographicButton.style.visibility = "hidden";
+				}
+			</script> -->
+
+
+		</div>
+
+
+		<div class="navi">
+			<p>
+				<button id="participant-next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<span id="page-ref" class="page-ref"> </span>
+			</p>
+		</div>
+
+
+	</div>
 
 
 
@@ -204,27 +280,27 @@
 	<div class="page" id="gold-msi">
 
 		<div class="main">
-			<h2> Questionnaire </h2>
+			<h2> Musical Background Questionnaire </h2>
 
 			<p>Please answer the following questions as accurately as possible:</p>
 
 			<p>In the past twelve months, I have attended :</p>
 
 			<p>
-				<div>
-					<input type="radio" name="events" value="0-1">
+				<div id="goldmsi-events">
+					<input type="radio" name="events" id="events1" value="0-1">
 					<label for="choice1"> 0-1 </label>
 
-					<input type="radio" name="events" value="2-3">
+					<input type="radio" name="events" id="events2" value="2-3">
 					<label for="choice1"> 2-3 </label>
 
-					<input type="radio" name="events" value="4-6">
+					<input type="radio" name="events" id="events3" value="4-6">
 					<label for="choice1"> 4-6 </label>
 
-					<input type="radio" name="events" value="7-10">
+					<input type="radio" name="events" id="events4" value="7-10">
 					<label for="choice1"> 7-10 </label>
 
-					<input type="radio" name="events" value="11+">
+					<input type="radio" name="events" id="events5" value="11+">
 					<label for="choice1"> 11+ </label>
 					live music events.
 
@@ -236,23 +312,22 @@
 			<p> I listen attentively to music for:</p>
 
 			<p>
-				<div>
+				<div id="goldmsi-listen">
 
-					<input type="radio" name="listening" value="0-15">
+					<input type="radio" name="listening" id="listening1" value="0-15">
 					<label for="choice1"> 0-15 min </label>
 
-					<input type="radio" name="listening" value="15-30">
+					<input type="radio" name="listening" id="listening2" value="15-30">
 					<label for="choice1"> 15-30 min </label>
 
-					<input type="radio" name="listening" value="30-60">
+					<input type="radio" name="listening" id="listening3" value="30-60">
 					<label for="choice1"> 30-60 min </label>
 
-					<input type="radio" name="listening" value="1-2">
+					<input type="radio" name="listening" id="listening4" value="1-2">
 					<label for="choice1"> 1-2 hrs </label>
 
-					<input type="radio" name="listening" value="2-4">
+					<input type="radio" name="listening" id="listening5" value="2-4">
 					<label for="choice1"> 2-4 hrs </label>
-
 
 					<input type="radio" name="listening" value="4+">
 					<label for="choice1"> 4 + hrs </label>
@@ -266,21 +341,21 @@
 			<p> I would not consider myself a musician: </p>
 
 			<p>
-				<div>
+				<div id="goldmsi-musicianship">
 
-					<input type="radio" name="musician" value="-2">
+					<input type="radio" name="musician" id="musician1" value="-2">
 					<label for="choice1"> Strongly Disagree </label>
 
-					<input type="radio" name="listening" value="-1">
+					<input type="radio" name="musician" id="musician2" value="-1">
 					<label for="choice1"> Disagree </label>
 
-					<input type="radio" name="listening" value="0">
+					<input type="radio" name="musician" id="musician3" value="0">
 					<label for="choice1"> Neither agree or disagree </label>
 
-					<input type="radio" name="listening" value="1">
+					<input type="radio" name="musician" id="musician4" value="1">
 					<label for="choice1"> Agree </label>
 
-					<input type="radio" name="listening" value="2">
+					<input type="radio" name="musician" id="musician5" value="2">
 					<label for="choice1"> Strongly Agree </label>
 
 
@@ -290,22 +365,22 @@
 
 			<p> Pieces of music rarely evoke emotions for me: </p>
 			<p>
-				<div>
+				<div id="goldmsi-emotions">
 
 
-					<input type="radio" name="emotions1" value="-2">
+					<input type="radio" name="emotions1" id="emotions11" value="-2">
 					<label for="choice1"> Strongly Disagree </label>
 
-					<input type="radio" name="emotions1" value="-1">
+					<input type="radio" name="emotions1" id="emotions12" value="-1">
 					<label for="choice1"> Disagree </label>
 
-					<input type="radio" name="emotions1" value="0">
+					<input type="radio" name="emotions1" id="emotions13" value="0">
 					<label for="choice1"> Neither agree or disagree </label>
 
-					<input type="radio" name="emotions1" value="1">
+					<input type="radio" name="emotions1" id="emotions14" value="1">
 					<label for="choice1"> Agree </label>
 
-					<input type="radio" name="emotions1" value="2">
+					<input type="radio" name="emotions1" id="emotions15" value="2">
 					<label for="choice1"> Strongly Agree </label>
 
 
@@ -317,22 +392,22 @@
 			<p> Music can evoke my memories of past people and places: </p>
 
 			<p>
-				<div>
+				<div id="goldmsi-emotions2">
 
 
-					<input type="radio" name="emotions2" value="-2">
+					<input type="radio" name="emotions2"  id="emotions21" value="-2">
 					<label for="choice1"> Strongly Disagree </label>
 
-					<input type="radio" name="emotions2" value="-1">
+					<input type="radio" name="emotions2" id="emotions22" value="-1">
 					<label for="choice1"> Disagree </label>
 
-					<input type="radio" name="emotions2" value="0">
+					<input type="radio" name="emotions2" id="emotions23" value="0">
 					<label for="choice1"> Neither agree or disagree </label>
 
-					<input type="radio" name="emotions2" value="1">
+					<input type="radio" name="emotions2" id="emotions24" value="1">
 					<label for="choice1"> Agree </label>
 
-					<input type="radio" name="emotions2" value="2">
+					<input type="radio" name="emotions2" id="emotions25" value="2">
 					<label for="choice1"> Strongly Agree </label>
 
 				</div>
@@ -341,25 +416,34 @@
 
 			<p>I am able to talk about the emotions that a piece of music evokes for me: </p>
 			<p>
-				<div>
+				<div id="goldmsi-emotions3">
 
 
-					<input type="radio" name="emotions3" value="-2">
+					<input type="radio" name="emotions3" id="emotions31" value="-2">
 					<label for="choice1"> Strongly Disagree </label>
 
-					<input type="radio" name="emotions3" value="-1">
+					<input type="radio" name="emotions3" id="emotions32" value="-1">
 					<label for="choice1"> Disagree </label>
 
-					<input type="radio" name="emotions3" value="0">
+					<input type="radio" name="emotions3" id="emotions33" value="0">
 					<label for="choice1"> Neither agree or disagree </label>
 
-					<input type="radio" name="emotions3" value="1">
+					<input type="radio" name="emotions3" id="emotions34" value="1">
 					<label for="choice1"> Agree </label>
 
-					<input type="radio" name="emotions3" value="2">
+					<input type="radio" name="emotions3" id="emotions35" value="2">
 					<label for="choice1"> Strongly Agree </label>
 
 				</div>
+			</p>
+
+
+		
+			<div class="submit">
+				<p>
+					<button id="submit-goldsmiths" class="button" > Submit </button>
+				</p>
+			</div>
 			</p>
 
 
@@ -375,6 +459,20 @@
 	</div>
 
 
+	<div class="page" id="usage-test">
+
+		<div class="main">
+			<!-- onload="TestApplication.init()" -->
+			<h2> Using The Interface ..</h2>
+		</div>
+		<div class="navi">
+			<p>
+				<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<span id="page-ref" class="page-ref"> </span>
+			</p>
+		</div>
+	</div>
 
 
 	<!-- test pages using vue to update text -->
@@ -415,8 +513,8 @@
 
 					<div class="navi">
 						<p>
-							<button id="next-button" v-on:click="setNewValue()" onclick="buttonPressed()" class="button"
-								value="hide"> Next </button>
+							<button id="next-button-vue" v-on:click="setNewValue()" onclick="buttonPressed()"
+								class="button" value="hide"> Next </button>
 							<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
 							<span id="page-ref" class="page-ref"> </span>
 						</p>
@@ -436,8 +534,8 @@
 
 
 
-
-	<scrip t src="js/main.js"></script>
+	<script src="js/firebase.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
