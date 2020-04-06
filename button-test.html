@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Include jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--- Study CSS outline-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title></title>
+</head>
+
+<body>
+
+    <!-- <label class="container" id="consent">
+        <input type="checkbox" name="consent1" form="survey" value="yes">
+        <span class="checkmark"></span>
+    </label> -->
+
+    <label class="container" id="consent">
+        Check me: <input id="consent1" type="checkbox" />
+        <span class="checkmark"></span>
+    </label>
+
+    <span id="error message" class="errorText" hidden>
+        this is the error text
+    </span>
+
+    <button class="button" id="button1"> proceed! </button>
+
+    <!-- <script>
+        $("button[id=button1]").click(function () {
+            console.log($('#checkbox[name=consent1]').is(':checked'));
+        })
+    </script> -->
+
+
+    <script>
+        $('#button1').click(function () {
+           var checkboxTicked = ($('#consent1').prop('checked'));
+           console.log(checkboxTicked);
+           var isOkay = false;
+            if (checkboxTicked  == true) {
+                isOkay = true;
+                console.log(isOkay);
+            }
+            if (isOkay == true) {
+                //nextPage 
+            } else if (isOkay == false )  {
+                $('#errorMessage').show();
+                alert('must consent to all questions..'); 
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

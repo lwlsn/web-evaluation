@@ -1,7 +1,5 @@
-// Moodplayer app code // 
-
-var Application = {
-  moods: [
+var TestApplication = {
+    moods: [
       ['power',0.69,0.71,0.79,1],
       ['bright',0.81,0.55,0.67,2],
       ['brutal',0.23,0.7,0.45,3],
@@ -18,53 +16,42 @@ var Application = {
       ['scary',0.28,0.71,0.33,14],
       ['positive',0.88,0.57,0.65,15],
       ['sad',0.08,0.39,0.31,16]
-  ],
-
-
-    init() {
-      this.is_touch_device = 'ontouchstart' in document.documentElement; 
+    ],
+   
+    init: function() {
+      this.is_touch_device = 'ontouchstart' in document.documentElement;
       this.canvas = document.getElementById('canvas');
       this.label = document.getElementById('label');
-      this.audio = document.getElementById('audio');
       this.draw();
       this.lastClick = new Date();
-      this.canvas.style.visibility="hidden";
-      this.audio.style.visibility="hidden";
-
-
+  
       if (this.is_touch_device) {
         this.canvas.addEventListener('touchstart', function(event) {
           Application.onMouseUp(event.targetTouches[0]);
         });
       }
-
       else {
         this.canvas.addEventListener('click', function(event) {
-          Application.onMouseUp(event)
+          Application.onMouseUp(event);
         });
-
-      };
-
-    }, 
-
-
+      }
+    },
+  
     tl: { r: 200, g: 0, b: 0 },
     tr: { r: 200, g: 150, b: 0 },
     bl: { r: 0, g: 50, b: 100 },
     br: { r: 200, g: 230, b: 80 },
-      
-    interpolateColor(a, b, x) {
+    
+    interpolateColor: function(a, b, x) {
       return {
         r: Math.floor(a.r + (b.r - a.r) * x),
         g: Math.floor(a.g + (b.g - a.g) * x),
         b: Math.floor(a.b + (b.b - a.b) * x)
       };
     },
-
-
-
-    draw() {
-    var step = 20;
+  
+    draw: function() {
+      var step = 20;
       var ctx = this.canvas.getContext("2d");  
       ctx.clearRect(0, 0, 320, 320);
   
@@ -79,7 +66,7 @@ var Application = {
           ctx.fillRect(x, y, step, step);
         }
       }
-
+  
       ctx.beginPath();
       ctx.strokeStyle = "rgb(0,0,0)";
       ctx.moveTo(0, 160);
@@ -104,7 +91,7 @@ var Application = {
       ctx.lineTo(150, 10);
       ctx.lineTo(170, 10);
       ctx.fill();
-
+  
       ctx.font = "16px Arial";
       ctx.fillText("Positivity", 200, 158);  
       
@@ -114,110 +101,66 @@ var Application = {
       ctx.font = "16px Arial";
       ctx.fillText("Energy", 0, 0);  
       ctx.restore();
-    
-    if (this.marker) {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-      ctx.beginPath();
-      ctx.arc(this.marker.x, this.marker.y, 20, 0, Math.PI*2, true); 
-      ctx.fill();
-    }
-  
-    }, 
-
-    request (url, callback) {
-      var request = new XMLHttpRequest(); 
+   
+      if (this.marker) {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+        ctx.beginPath();
+        ctx.arc(this.marker.x, this.marker.y, 20, 0, Math.PI*2, true); 
+        ctx.fill();
+      }
+    },
+   
+    request: function(url, callback) {
+      var request = new XMLHttpRequest();
       request.open("GET", url);
       request.send(null);
-
-    }, 
-
-    onMouseUp (event) {
-
-
-      if (new Date() - this.lastClick > 1000) {
-        const canvas = document.querySelector('canvas');
-        this.setMarker(canvas, event);
+    },
+  
+    onMouseUp: function(event) {
+      if ((new Date() - this.lastClick) > 1000) {
+        this.setMarker(event);
         this.sendPosition(event);
         this.draw();
-        this.postCanvasCoords(canvas, event);
         this.lastClick = new Date();
       }
-
-
-    }, 
-
-    sendPosition (event) {
+    },
+  
+    sendPosition: function(event) {
       var x = event.pageX / 320;
       var y = 1 - event.pageY / 320;
   
-      // this.request("/moodconductor/mood?x=" + x + "&y=" + y);
+      this.request("/moodconductor/mood?x=" + x + "&y=" + y);
     },
-
-    setMarker (canvas, event) {
-
-      const rect = canvas.getBoundingClientRect();
+  
+    setMarker: function(event) {
       this.marker = {
-          x: event.clientX -rect.left,
-          y: event.clientY- rect.top
-       };
+        x: event.pageX,
+        y: event.pageY
+      };
   
       var x = event.pageX / 320;
       var y = 1 - event.pageY / 320;
-
-
-      // const rect = canvas.getBoundingClientRect(); 
-      // const x = event.clientX - rect.left;
-      // const y = event.clientY - rect.top;
-
-      // this.label.innerHTML = this.findMood(x, y);
+  
+      this.label.innerHTML = this.findMood(x, y);
     },
-
-    // on page refresh, reset marker.. 
-    resetMarker (canvas, event) {
-
-      // const rect = canvas .getBoundingClientRect();
-      this.marker = {
-          x: 0,
-          y: 0
-       };
-
-    },
-
-
-    postCanvasCoords (canvas, event) {
-      const rect = canvas.getBoundingClientRect(); 
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      console.log("x: " + x + " y: " + y);
-
-  //    const canvas = document.querySelector('canvas')
-    // canvas.addEventListener('mousedown', function(e) {
-  //    getCursorPosition(canvas, e)
-    // })
-
-    // return(x,y);
-    },
-
-
-    findMood (x,y) {
-      var distance= 1;
+  
+    findMood: function(x, y) {
+      var distance = 1;
       var index = null;
-
+      
       for (var i = 0; i < this.moods.length; i++) {
         var mood = this.moods[i];
         var dx = Math.abs(mood[1] - x);
         var dy = Math.abs(mood[2] - y);
         var d = Math.sqrt(dx * dx + dy * dy);
-
-      if (d < distance) {
-        distance = d;
-        index = i;
+  
+        if (d < distance) {
+          distance = d;
+          index = i;
         }
-     }
+      }
   
       return this.moods[index][0];
-
-    }
-
-}
+     }
+  };
+  
