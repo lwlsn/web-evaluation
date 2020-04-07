@@ -172,59 +172,95 @@
 	<div class="page" id="participant-info">
 		<div class="main">
 			<h2> Participant Data Information </h2>
+
+
 			<p>I would best describe my current profession as: </p>
-			<!-- turn into dropdown list... -->
+			<!-- turn into dropdown list...? -->
 			<p>
 				<div>
-					<input type="radio" name="employment" id="school" value="school">
-					<label id="at-school"> At School </label>
 
-					<input type="radio" name="employment" id="university" value="university">
-					<label id="at-university"> At University </label>
+					<label class="container"> At School
+						<input type="radio" checked="checked" name="employment" id="school" value="school">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="employment" id="full-time" value="full-time">
-					<label id="full-time"> In Full-time Employment </label>
+					<label class="container">  At University
+						<input type="radio" name="employment" id="university" value="university">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="employment" id="part-time" value="part-time">
-					<label id="part-time"> In Part-time Employment </label>
+					<label class="container">  In Full-time Employment
+						<input type="radio" name="employment" id="full-time" value="full-time">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="employment" id="self" value="self">
-					<label id="self"> Self-Employed </label>
+					<label class="container"> In Part-time Employment
+						<input type="radio" name="employment" id="part-time" value="part-time"> 
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="employment" id="parent" value="parent">
-					<label id="parent"> Full-time Parent </label>
+					<label class="container"> Self-Employed
+						<input type="radio" name="employment" id="self" value="self">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="employment" id="unemployed" value="unemployed">
-					<label id="unemployed"> Unemployed </label>
+					<label class="container"> Full-time Parent
+						<input type="radio" name="employment" id="parent" value="parent">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="employment" id="retired" value="retired">
-					<label id="retired"> Retired </label>
+					<label class="container"> Retired 
+						<input type="radio" name="employment" id="retired" value="retired">
+						<span class="checkmark"> </span>
+					</label>
 
+					<label class="container"> Other
+						<input type="radio" name="employment" id="other" value="other"> 
+						<span class="checkmark"></span>
+					</label>
+
+					<p>
+					If other please specify ... 
+					<input type="text" name="employment" id="other-text"> 
+					</p>
 				</div>
 			</p>
 
 
 
-			<p> My age is: </p>
+			<p> My age range is: </p>
 
 			<div id="age-radio">
-				<input type="radio" name="age" id="18-24" value="18-24">
-				<label id="18-24"> 18-24 </label>
 
-				<input type="radio" name="age" id="25-34" value="25-34">
-				<label id="25-34"> 25-34 </label>
+				<label class="container"> 18-24
+					<input type="radio" checked="checked" name="age" id="18-24" value="18-24">
+					<span class="checkmark"> </span>
+				</label>
+				
+				<label class="container"> 25-34
+					<input type="radio" name="age" id="25-34" value="25-34">
+					<span class="checkmark"> </span>
+				</label>
 
-				<input type="radio" name="age" id="35-44" value="35-44">
-				<label id="35-44"> 35-44 </label>
-
-				<input type="radio" name="age" id="45-54" value="45-54">
-				<label id="45-54"> 45-54 </label>
-
-				<input type="radio" name="age" id="55-64" value="55-64">
-				<label id="55-64"> 55-64 </label>
-
-				<input type="radio" name="age" id="65+" value="65+">
-				<label id="65+"> 65+ </label>
+				<label class="container"> 35-44
+					<input type="radio" name="age" id="35-44" value="35-44">
+					<span class="checkmark"></span>
+				</label>
+				
+				<label class="container">  45-54
+					<input type="radio" name="age" id="45-54" value="45-54">
+					<span class="checkmark"></span>
+				</label>
+				
+				<label class="container"> 55-64
+					<input type="radio" name="age" id="55-64" value="55-64">
+					<span class="checkmark"> </span>
+				</label>
+				
+				<label class="container"> 65+
+					<input type="radio" name="age" id="65+" value="65+">
+					<span class="checkmark"></span>
+				</label>
 
 			</div>
 
@@ -246,7 +282,7 @@
 
 			<div class="submit">
 				<p>
-					<button id="submit-demographics" class="button" > Submit </button>
+					<button id="submit-demographics" class="button"> Submit </button>
 				</p>
 			</div>
 
@@ -284,55 +320,80 @@
 
 			<p>Please answer the following questions as accurately as possible:</p>
 
-			<p>In the past twelve months, I have attended :</p>
+			<p>In the past twelve months, I have attended  ... live music events:</p>
 
 			<p>
 				<div id="goldmsi-events">
-					<input type="radio" name="events" id="events1" value="0-1">
-					<label for="choice1"> 0-1 </label>
 
-					<input type="radio" name="events" id="events2" value="2-3">
-					<label for="choice1"> 2-3 </label>
+					<label class="container"> 0-1
+						<input type="radio"  name="events" id="events1" value="0-1">
+						<span class="checkmark"></span>
+					</label>
+					
+					<label class="container"> 2-3
+						<input type="radio" name="events" id="events2" value="2-3">
+						<span class="checkmark"></span>
+					</label>
+					
+					<label class="container"> 4-6
+						<input type="radio" checked="checked" name="events" id="events3" value="4-6">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="events" id="events3" value="4-6">
-					<label for="choice1"> 4-6 </label>
+					
+					<label class="container"> 7-10
+						<input type="radio" name="events" id="events4" value="7-10">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="events" id="events4" value="7-10">
-					<label for="choice1"> 7-10 </label>
+					
+					<label class="container"> 11+ 
+						<input type="radio" name="events" id="events5" value="11+">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="events" id="events5" value="11+">
-					<label for="choice1"> 11+ </label>
-					live music events.
+			
 
 				</div>
 			</p>
 
 
 
-			<p> I listen attentively to music for:</p>
+			<p> I listen attentively to music for ... daily:</p>
 
 			<p>
 				<div id="goldmsi-listen">
 
-					<input type="radio" name="listening" id="listening1" value="0-15">
-					<label for="choice1"> 0-15 min </label>
+					<label class="container"> 0-15 min
+						<input type="radio"  name="listening" id="listening1" value="0-15">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="listening" id="listening2" value="15-30">
-					<label for="choice1"> 15-30 min </label>
+					<label class="container"> 15-30 min
+						<input type="radio" name="listening" id="listening2" value="15-30">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="listening" id="listening3" value="30-60">
-					<label for="choice1"> 30-60 min </label>
+					<label class="container"> 30-60 min
+						<input type="radio" checked="checked" name="listening" id="listening3" value="30-60">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="listening" id="listening4" value="1-2">
-					<label for="choice1"> 1-2 hrs </label>
+					<label class="container"> 1-2 hrs
+						<input type="radio" name="listening" id="listening4" value="1-2">
+						<span class="checkmark"></span>
+					</label>
+					
+					<label class="container"> 2-4 hrs
+						<input type="radio" name="listening" id="listening5" value="2-4">
+						<span class="checkmark"></span>
+					</label>
 
-					<input type="radio" name="listening" id="listening5" value="2-4">
-					<label for="choice1"> 2-4 hrs </label>
-
-					<input type="radio" name="listening" value="4+">
-					<label for="choice1"> 4 + hrs </label>
-
-					daily.
+					<label class="container"> 4+ hrs
+						<input type="radio" name="listening" id="listening6" value="4+">
+						<span class="checkmark"></span>
+					</label>
+				
 
 				</div>
 			</p>
@@ -343,21 +404,30 @@
 			<p>
 				<div id="goldmsi-musicianship">
 
-					<input type="radio" name="musician" id="musician1" value="-2">
-					<label for="choice1"> Strongly Disagree </label>
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="musician" id="musician1" value="-2">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="musician" id="musician2" value="-1">
-					<label for="choice1"> Disagree </label>
+					<label class="container">  Disagree
+						<input type="radio" name="musician" id="musician2" value="-1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="musician" id="musician3" value="0">
-					<label for="choice1"> Neither agree or disagree </label>
+					<label class="container">  Neither agree or disagree
+						<input type="radio" checked="checked" name="musician" id="musician3" value="0">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="musician" id="musician4" value="1">
-					<label for="choice1"> Agree </label>
+					<label class="container"> Agree
+						<input type="radio" name="musician" id="musician4" value="1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="musician" id="musician5" value="2">
-					<label for="choice1"> Strongly Agree </label>
-
+					<label class="container"> Strongly Agree 
+						<input type="radio" name="musician" id="musician5" value="2">
+						<span class="checkmark"> </span>
+					</label>
 
 				</div>
 			</p>
@@ -367,21 +437,31 @@
 			<p>
 				<div id="goldmsi-emotions">
 
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="emotions1" id="emotions11" value="-2">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions1" id="emotions11" value="-2">
-					<label for="choice1"> Strongly Disagree </label>
 
-					<input type="radio" name="emotions1" id="emotions12" value="-1">
-					<label for="choice1"> Disagree </label>
+					<label class="container"> Disagree
+						<input type="radio" name="emotions1" id="emotions12" value="-1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions1" id="emotions13" value="0">
-					<label for="choice1"> Neither agree or disagree </label>
+					<label class="container"> Neither agree or disagree
+						<input type="radio" checked="checked" name="emotions1" id="emotions13" value="0">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions1" id="emotions14" value="1">
-					<label for="choice1"> Agree </label>
+					<label class="container"> Agree
+						<input type="radio" name="emotions1" id="emotions14" value="1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions1" id="emotions15" value="2">
-					<label for="choice1"> Strongly Agree </label>
+					<label class="container">  Strongly Agree
+						<input type="radio" name="emotions1" id="emotions15" value="2">
+						<span class="checkmark"> </span>
+					</label>
 
 
 				</div>
@@ -395,20 +475,31 @@
 				<div id="goldmsi-emotions2">
 
 
-					<input type="radio" name="emotions2"  id="emotions21" value="-2">
-					<label for="choice1"> Strongly Disagree </label>
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="emotions2" id="emotions21" value="-2">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions2" id="emotions22" value="-1">
-					<label for="choice1"> Disagree </label>
 
-					<input type="radio" name="emotions2" id="emotions23" value="0">
-					<label for="choice1"> Neither agree or disagree </label>
+					<label class="container"> Disagree
+						<input type="radio" name="emotions2" id="emotions22" value="-1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions2" id="emotions24" value="1">
-					<label for="choice1"> Agree </label>
+					<label class="container"> Neither agree or disagree
+						<input type="radio" checked="checked" name="emotions2" id="emotions23" value="0">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions2" id="emotions25" value="2">
-					<label for="choice1"> Strongly Agree </label>
+					<label class="container"> Agree
+						<input type="radio" name="emotions2" id="emotions24" value="1">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container">  Strongly Agree
+						<input type="radio" name="emotions2" id="emotions25" value="2">
+						<span class="checkmark"> </span>
+					</label>
 
 				</div>
 			</p>
@@ -418,30 +509,38 @@
 			<p>
 				<div id="goldmsi-emotions3">
 
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="emotions3" id="emotions31" value="-2">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions3" id="emotions31" value="-2">
-					<label for="choice1"> Strongly Disagree </label>
 
-					<input type="radio" name="emotions3" id="emotions32" value="-1">
-					<label for="choice1"> Disagree </label>
+					<label class="container"> Disagree
+						<input type="radio" name="emotions3" id="emotions32" value="-1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions3" id="emotions33" value="0">
-					<label for="choice1"> Neither agree or disagree </label>
+					<label class="container"> Neither agree or disagree
+						<input type="radio" checked="checked" name="emotions3" id="emotions33" value="0">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions3" id="emotions34" value="1">
-					<label for="choice1"> Agree </label>
+					<label class="container"> Agree
+						<input type="radio" name="emotions3" id="emotions34" value="1">
+						<span class="checkmark"> </span>
+					</label>
 
-					<input type="radio" name="emotions3" id="emotions35" value="2">
-					<label for="choice1"> Strongly Agree </label>
-
+					<label class="container">  Strongly Agree
+						<input type="radio" name="emotions3" id="emotions35" value="2">
+						<span class="checkmark"> </span>
+					</label>
 				</div>
 			</p>
 
 
-		
 			<div class="submit">
 				<p>
-					<button id="submit-goldsmiths" class="button" > Submit </button>
+					<button id="submit-goldsmiths" class="button"> Submit </button>
 				</p>
 			</div>
 			</p>
