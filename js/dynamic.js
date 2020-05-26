@@ -11,9 +11,6 @@ function setup() {
      pages[0].style.display = "inline";
      sizeMain();
      Application.init();
-     if (currentPage == 4) {
-       TestApplication.init();
-     }
 
 }
 
@@ -125,6 +122,9 @@ function previousPage(){
     }
   }
 }
+
+
+
 
 
 // //Submit all survey forms at once

@@ -7,30 +7,162 @@ var count = 0;
 
 
 var paragraph1 = [
-"Please test the audio below",
+"Please test the audio below and adjust to a comfortable level.",
 "", 
 "", 
 ""]
 
 var paragraph2 = [
-"Test 1/4", 
-"Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+  "This page is designed to familiarise with the interface. The horizontal axis represents changes in POSITIVITY, whilst the vertical axis represents changes in ENERGY",
+  "Please now take a minute and click your mouse once at various points on the grid.", 
+  "The word that appears gives an indication of the desired mood for that level of positivity and energy."
 ]
 
 var paragraph3 = [
-  "Test 2/4", 
-  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+"Test 1/27", 
+"Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once.",
+""
 ]
 
 var paragraph4 = [
-  "Test 3/4", 
+  "Test 2/27", 
   "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
 ]
 
 var paragraph5 = [
-  "Test 4/4",
+  "Test 3/27", 
   "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
 ]
+
+var paragraph6 = [
+  "Test 4/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph7 = [
+  "Test 5/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph8 = [
+  "Test 6/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph9 = [
+  "Test 7/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph10 = [
+  "Test 8/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph11 = [
+  "Test 9/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph12 = [
+  "Test 10/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph13 = [
+  "Test 11/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph14 = [
+  "Test 12/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph15 = [
+  "Test 13/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph16 = [
+  "Test 14/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph17 = [
+  "Test 15/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph18 = [
+  "Test 16/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph19 = [
+  "Test 17/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph20 = [
+  "Test 18/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph21 = [
+  "Test 19/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph22 = [
+  "Test 20/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph23 = [
+  "Test 21/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph24 = [
+  "Test 22/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph25 = [
+  "Test 23/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph26 = [
+  "Test 24/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+
+var paragraph27 = [
+  "Test 25/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph28 = [
+  "Test 26/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
+var paragraph29 = [
+  "Test 27/27",
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+]
+
 
 var endParagraph = [
 "Thank you for your participation in this study.",
@@ -39,10 +171,11 @@ var endParagraph = [
 var app = new Vue ({
   el:'#app-1', 
   data: {
-    message0: " Welcome to the test section.  The next section will explain what you need to do to complete the test.", 
+    message0: " Welcome to the test section. This section will explain what you need to do to complete the test.", 
     message1:  "First, please complete the audio check on the next page to test the output of your headphones and adjust to a comfortable level." ,
     message2: " Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. Once this has been done, please complete the rest of the test in a quiet environment, free from distractions.",
-    message3: " In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are."
+    message3: " In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are. Use the provided grid to do this. The test section will not include any word prompts.",
+    percentage: 0
   }, 
   methods: {
     setNewValue: function() {
@@ -53,24 +186,180 @@ var app = new Vue ({
       this.message1 = paragraph1[1];
       this.message2 = paragraph1[2];
       this.message3 = paragraph1[3];
+      this.percentage = 100*(1/29); 
       }
       if (count == 1) {
+        var spanMarker = document.getElementById('canvas-marker');
+        spanMarker.style.visibility = "hidden";
+
         this.message0 = paragraph2[0];
-        this.message1 = paragraph2[1]; 
+        this.message1 = paragraph2[1];
+        this.message2 = paragraph2[2];
+        this.percentage = 100*(2/29);
       }
       if (count == 2) {
         this.message0 = paragraph3[0];
         this.message1 = paragraph3[1];
+        this.message2 = paragraph3[2];
+        this.percentage = 100*(3/29);
       }
       if (count == 3) {
         this.message0 = paragraph4[0];
         this.message1 = paragraph4[1];
+        this.percentage = 100*(4/29);
       }
       if (count == 4) {
         this.message0 = paragraph5[0];
         this.message1 = paragraph5[1];
+        this.percentage = 100*(5/29);
       }
-      else if (count >= 5) {
+      if (count == 5) {
+        this.message0 = paragraph6[0];
+        this.message1 = paragraph6[1];
+        this.percentage = 100*(6/29);
+      }
+
+      if (count == 6) {
+        this.message0 = paragraph7[0];
+        this.message1 = paragraph7[1];
+        this.percentage = 100*(7/29);
+      }
+
+      if (count == 7) {
+        this.message0 = paragraph8[0];
+        this.message1 = paragraph8[1];
+        this.percentage = 100*(8/29);
+      }     
+      
+      if (count == 8) {
+        this.message0 = paragraph9[0];
+        this.message1 = paragraph9[1];
+        this.percentage = 100*(9/29);
+      }
+
+      if (count == 9) {
+        this.message0 = paragraph10[0];
+        this.message1 = paragraph10[1];
+        this.percentage = 100*(10/29);
+      }
+
+      if (count == 10) {
+        this.message0 = paragraph11[0];
+        this.message1 = paragraph11[1];
+        this.percentage = 100*(11/29);
+      }
+
+      if (count == 11) {
+        this.message0 = paragraph12[0];
+        this.message1 = paragraph12[1];
+        this.percentage = 100*(12/29);
+      }
+
+      if (count == 12) {
+        this.message0 = paragraph13[0];
+        this.message1 = paragraph13[1];
+        this.percentage = 100*(13/29);
+      }
+
+      if (count == 13) {
+        this.message0 = paragraph14[0];
+        this.message1 = paragraph14[1];
+        this.percentage = 100*(14/29);
+      }
+
+      if (count == 14) {
+        this.message0 = paragraph15[0];
+        this.message1 = paragraph15[1];
+        this.percentage = 100*(15/29);
+      }
+
+
+      if (count == 15) {
+        this.message0 = paragraph16[0];
+        this.message1 = paragraph16[1];
+        this.percentage = 100*(16/29);
+      }
+
+      if (count == 16) {
+        this.message0 = paragraph17[0];
+        this.message1 = paragraph17[1];
+        this.percentage = 100*(17/29);
+      }
+
+      if (count == 17) {
+        this.message0 = paragraph18[0];
+        this.message1 = paragraph18[1];
+        this.percentage = 100*(18/29);
+      }
+
+      if (count == 18) {
+        this.message0 = paragraph19[0];
+        this.message1 = paragraph19[1];
+        this.percentage = 100*(19/29);
+      }
+
+      if (count == 19) {
+        this.message0 = paragraph20[0];
+        this.message1 = paragraph20[1];
+        this.percentage = 100*(20/29);
+      }
+
+      if (count == 20) {
+        this.message0 = paragraph21[0];
+        this.message1 = paragraph21[1];
+        this.percentage = 100*(21/29);
+      }
+
+      if (count == 21) {
+        this.message0 = paragraph22[0];
+        this.message1 = paragraph22[1];
+        this.percentage = 100*(22/29);
+      }
+
+
+      if (count == 22) {
+        this.message0 = paragraph23[0];
+        this.message1 = paragraph23[1];
+        this.percentage = 100*(23/29);
+      }
+
+      if (count == 23) {
+        this.message0 = paragraph24[0];
+        this.message1 = paragraph24[1];
+        this.percentage = 100*(24/29);
+      }
+
+      if (count == 24) {
+        this.message0 = paragraph25[0];
+        this.message1 = paragraph25[1];
+        this.percentage = 100*(25/29);
+      }
+
+      if (count == 25) {
+        this.message0 = paragraph26[0];
+        this.message1 = paragraph26[1];
+        this.percentage = 100*(26/29);
+      }
+
+      if (count == 26) {
+        this.message0 = paragraph27[0];
+        this.message1 = paragraph27[1];
+        this.percentage = 100*(27/29);
+      }     
+
+      if (count == 27) {
+        this.message0 = paragraph28[0];
+        this.message1 = paragraph28[1];
+        this.percentage = 100*(28/29);
+      }
+
+      if (count == 28) {
+        this.message0 = paragraph29[0];
+        this.message1 = paragraph29[1];
+        this.percentage = 100*(29/29);
+      }
+
+      else if (count >= 28) {
         this.message0 = endParagraph[0];
         this.message1 = endParagraph[1];
         var audio = document.getElementById('audio');
@@ -81,7 +370,7 @@ var app = new Vue ({
 
       count += 1;
 
-      console.log(count);
+      // console.log(count);
     }
   }
 })
@@ -108,31 +397,135 @@ var audio = document.getElementById('audio');
 audio.src = "assets/sine.wav";
 audio.style.visibility = "visible";
 // contents of audio buffer .. 
-var audioFiles = ["assets/excite.wav", "assets/sad.wav", "assets/calm.wav", "assets/angry.wav"];
+var audioFiles = ["assets/LV_LA/LV_LA_1.wav", "assets/LV_LA/LV_LA_2.wav", "assets/LV_LA/LV_LA_3.wav",
+"assets/MV_LA/MV_LA_1.wav", "assets/MV_LA/MV_LA_2.wav", "assets/MV_LA/MV_LA_3.wav",
+"assets/HV_LA/HV_LA_1.wav", "assets/HV_LA/HV_LA_2.wav", "assets/HV_LA/HV_LA_3.wav",
+"assets/LV_MA/LV_MA_1.wav", "assets/LV_MA/LV_MA_2.wav", "assets/LV_MA/LV_MA_3.wav",
+"assets/MV_MA/MV_MA_1.wav", "assets/MV_MA/MV_MA_2.wav", "assets/MV_MA/LV_MA_3.wav",
+"assets/HV_MA/HV_MA_1.wav", "assets/HV_MA/HV_MA_2.wav", "assets/HV_MA/HV_MA_3.wav",
+"assets/LV_HA/LV_HA_1.wav", "assets/LV_HA/LV_HA_2.wav", "assets/LV_HA/LV_HA_3.wav",
+"assets/MV_HA/MV_HA_1.wav", "assets/MV_HA/MV_HA_2.wav", "assets/MV_HA/MV_HA_3.wav",
+"assets/HV_HA/HV_HA_1.wav", "assets/HV_HA/HV_HA_2.wav", "assets/HV_HA/HV_HA_3.wav"];
+
 function updateAudio() {
   // var audio= document.getElementById('audio');
   if (a == 0) {
-    audio.src = "assets/sine.wav"; 
-    audio.style.visibility = "visible";
     shuffle(audioFiles);
+    audio.style.visibility = "visible";
+    audio.src = "assets/sine.wav"; 
     a =1;
   } 
   else if (a == 1) {
-    audio.src = audioFiles[0];
+    audio.style.visibility = "hidden";
     a= 2;
-  } else if (a == 2) {
-    audio.src = audioFiles[1];
+  } 
+  else if (a == 2) {
+    audio.style.visibility = "visible";
+    audio.src = audioFiles[0];
     a=3; 
   } 
    else if (a == 3) {
-    audio.src = audioFiles[2];
+    audio.src = audioFiles[1];
     a=4; 
   } 
   else if (a == 4) {
-    audio.src = audioFiles[3];
+    audio.src = audioFiles[2];
 
   }
-  else if ( a >= 4) {
+  else if (a == 5) {
+    audio.src = audioFiles[3];
+  }
+  else if (a == 6) {
+    audio.src = audioFiles[4];
+  }
+  else if (a == 7) {
+    audio.src = audioFiles[5];
+  }
+
+  else if (a == 8) {
+    audio.src = audioFiles[6];
+  }
+  else if (a == 9) {
+    audio.src = audioFiles[7];
+  }
+
+  else if (a == 10) {
+    audio.src = audioFiles[8];
+  }
+
+  else if (a == 11) {
+    audio.src = audioFiles[9];
+  }
+
+  else if (a == 12) {
+    audio.src = audioFiles[10];
+  }
+
+  else if (a == 13) {
+    audio.src = audioFiles[11];
+  }
+
+  else if (a == 14) {
+    audio.src = audioFiles[12];
+  }
+
+  else if (a == 15) {
+    audio.src = audioFiles[13];
+  }
+
+  else if (a == 16) {
+    audio.src = audioFiles[14];
+  }
+
+  else if (a == 17) {
+    audio.src = audioFiles[15];
+  }
+
+  else if (a == 18) {
+    audio.src = audioFiles[16];
+  }
+
+  else if (a == 19) {
+    audio.src = audioFiles[17];
+  }
+
+  else if (a == 20) {
+    audio.src = audioFiles[18];
+  }
+
+  else if (a == 21) {
+    audio.src = audioFiles[19];
+  }
+
+  else if (a == 22) {
+    audio.src = audioFiles[20];
+  }
+
+  else if (a == 23) {
+    audio.src = audioFiles[21];
+  }
+
+  else if (a == 24) {
+    audio.src = audioFiles[22];
+  }
+
+  else if (a == 25) {
+    audio.src = audioFiles[23];
+  }
+
+  else if (a == 26) {
+    audio.src = audioFiles[24];
+  }
+
+  else if (a == 27) {
+    audio.src = audioFiles[25];
+  }
+
+  else if (a == 28) {
+    audio.src = audioFiles[26];
+  }
+
+  else if ( a >= 28) {
     audio.style.visibility = "hidden";
   }
   audio.load();
@@ -143,36 +536,47 @@ function updateAudio() {
 var b=0;
 
 function toggleCanvas() {
-    var btn = document.getElementById('next-button');
+    var submitBtn = document.getElementById('submit-vue');
     var canvas = document.getElementById('canvas');
-    // if (btn.value ==="hide") {
-    //   btn.value = "show"
-    //   canvas.style.visibility="hidden";
-    // } else {
-    //   btn.value = "hide";
-    //   canvas.style.visibility = "visible";
-    // }
+    var label = document.getElementById('label');
 
-    if (b >= 1 && b <= 4 ) {
+
+
+    //  hide canvas when not on primer or test pages
+    if (b >= 1 && b <= 28 ) {
       canvas.style.visibility="visible";
     }  else {
       canvas.style.visibility="hidden";
     }
 
-    b+=1;
 
+    // only show label on primer pages
+    if (b >= 2 && b <= 28) {
+        label.style.visibility = "hidden";
+    }
 
-    if (b >= 2 && b <=5) {
+    // show page reference for each test page.
+    if (b >= 2 && b <= 28) {
     document.getElementById('page-ref').innerHTML = (b-1) + "/4"; 
     }
+
+
+    if (b >= 2 && b <= 28) {
+      submitBtn.style.visibility = "visible";
+    } else {
+      submitBtn.style.visibility = "hidden";
+    }
+
+    b+=1;
 
   }
 
 
 function buttonPressed() {
-  updateAudio();
+  updateAudio(); 
   toggleCanvas();
-  Application.resetMarker();
+
+  // Application.resetMarker();
 }
 
 

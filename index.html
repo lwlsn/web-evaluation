@@ -16,7 +16,6 @@
 	<!-- Include js scripts-->
 	<script src="js/dynamic.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/app2.js"></script>
 	<script src="js/config.js"></script>
 
 	<!--Vue development version, includes helpful console warnings -->
@@ -46,24 +45,22 @@
 	<div class="page" id="study-introduction">
 		<div class="main" id="main1">
 			<h2>Introduction to the Study - Evaluating Models of Affective Response through Listener Perception of
-				Rhythmic Patterns</h2>
+				Musical Patterns</h2>
 
 			<p> We would like to invite you to be part of this research about musical pattern and emotion. Participation
 				in the study is optional. If you choose not to take part there won’t be any disadvantages for you and
 				you will hear no more about it.</p>
 
 			<p> Please read the following information carefully before you decide to take part; this will tell you why
-				the research is being done and what you will be asked to do if you take part. Please contact me by email
-				<a href=mailto:elizabeth.wilson@qmul.ac.uk">elizabeth.wilson@qmul.ac.uk</a> if there is anything unclear
+				the research is being done and what you will be asked to do if you take part. Please contact me
+				<a href=mailto:elizabeth.wilson@qmul.ac.uk">by email</a> if there is anything unclear
 				or if you would like more information. </p>
 
-			<p> This research will look at evaluating listeners’ perception of music: examining affective/emotional
-				response to short musical phrases. You will initially be asked a few demographic questions designed to
-				assess your musical background and engagement levels.</p>
 
-			<p> You will be then presented with the test that allows you to play short audio clips. You are asked to
+			<p> You will initially be asked a few demographic questions designed to assess your musical background and engagement levels. 
+				You will be then presented with the test that allows you to play short audio clips. You are asked to
 				listen to all the clips presented for the duration of the listening test. This should be completed using
-				good quality headphones and in a quiet space, free from interruption. </p>
+				good quality headphones and in a quiet space, free from interruption. The study should take around 20 minutes to complete.</p>
 
 			<p> After listening, you will be asked to give an evaluative rating of the perceived emotional content to
 				the audio. To do so, you be asked to place a slider on a 2-dimensional grid and rate the pieces listened
@@ -74,7 +71,7 @@
 		<div class="navi">
 			<p>
 				<button id="introduction-next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
-				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> contact </a>
 				<span id="page-ref" class="page-ref"> </span>
 			</p>
 		</div>
@@ -130,13 +127,12 @@
 				</label>
 			</p>
 
-
 		</div>
 
 		<div class="navi">
 			<p>
 				<button id="consent-button" class="button" value="hide"> Next </button>
-				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> contact  </a>
 				<span id="page-ref" class="page-ref"> </span>
 			</p>
 		</div>
@@ -167,35 +163,34 @@
 
 	</div>
 
-
 	<!-- Participant Information -->
 	<div class="page" id="participant-info">
 		<div class="main">
 			<h2> Participant Data Information </h2>
 
+			<form>
 
-			<p>I would best describe my current profession as: </p>
-			<!-- turn into dropdown list...? -->
-			<p>
+				<p>I would best describe my current occupation as: </p>
+	
 				<div>
 
 					<label class="container"> At School
-						<input type="radio" checked="checked" name="employment" id="school" value="school">
+						<input type="radio"  name="employment" id="school" value="school">
 						<span class="checkmark"> </span>
 					</label>
 
-					<label class="container">  At University
+					<label class="container"> At University
 						<input type="radio" name="employment" id="university" value="university">
 						<span class="checkmark"></span>
 					</label>
 
-					<label class="container">  In Full-time Employment
+					<label class="container"> In Full-time Employment
 						<input type="radio" name="employment" id="full-time" value="full-time">
 						<span class="checkmark"> </span>
 					</label>
 
 					<label class="container"> In Part-time Employment
-						<input type="radio" name="employment" id="part-time" value="part-time"> 
+						<input type="radio" name="employment" id="part-time" value="part-time">
 						<span class="checkmark"> </span>
 					</label>
 
@@ -209,90 +204,89 @@
 						<span class="checkmark"></span>
 					</label>
 
-					<label class="container"> Retired 
+					<label class="container"> Retired
 						<input type="radio" name="employment" id="retired" value="retired">
 						<span class="checkmark"> </span>
 					</label>
 
 					<label class="container"> Other
-						<input type="radio" name="employment" id="other" value="other"> 
+						<input type="radio" name="employment" id="other" value="other">
 						<span class="checkmark"></span>
 					</label>
 
 					<p>
-					If other please specify ... 
-					<input type="text" name="employment" id="other-text"> 
+					<label for="other-text"> If other please specify: </label> </p>
+						<input type="text" name="employment" id="other-text">
+
+				
+
+				</div>
+
+				<p> My age range is: </p>
+
+				<div id="age-radio">
+
+					<label class="container"> 18-24
+						<input type="radio" name="age" id="18-24" value="18-24">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> 25-34
+						<input type="radio" name="age" id="25-34" value="25-34">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> 35-44
+						<input type="radio" name="age" id="35-44" value="35-44">
+						<span class="checkmark"></span>
+					</label>
+
+					<label class="container"> 45-54
+						<input type="radio" name="age" id="45-54" value="45-54">
+						<span class="checkmark"></span>
+					</label>
+
+					<label class="container"> 55-64
+						<input type="radio" name="age" id="55-64" value="55-64">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> 65+
+						<input type="radio" name="age" id="65+" value="65+">
+						<span class="checkmark"></span>
+					</label>
+
+				</div>
+
+
+				<p> I would describe my gender as: </p>
+				<input type="text" id="gender-data" name="gender">
+				<label for="gender"> </label>
+
+				<!-- To choose from a dropdown list..? -->
+				<!-- <p> I would describe my nationality as : </p>
+				<input type="text" id="nationality-data" name="nationality">
+				<label for="nationality"> </label> -->
+
+				<p>I would describe my nationality as:  </p>
+				<label for="nationality"> </label>
+				<input type="text" id="nationality-data" name="nationality">
+
+
+				<p> The countr(ies) that I spent most of my formative years in was: </p>
+				<input type="text" id="formative-data" name="formative">
+				<label for="nationality"> </label>
+
+
+
+
+				<div class="submit">
+					<p>
+						<button id="submit-demographics" class="button" onclick="deleteAfterClick()" > Submit </button>
 					</p>
 				</div>
-			</p>
 
-
-
-			<p> My age range is: </p>
-
-			<div id="age-radio">
-
-				<label class="container"> 18-24
-					<input type="radio" checked="checked" name="age" id="18-24" value="18-24">
-					<span class="checkmark"> </span>
-				</label>
-				
-				<label class="container"> 25-34
-					<input type="radio" name="age" id="25-34" value="25-34">
-					<span class="checkmark"> </span>
-				</label>
-
-				<label class="container"> 35-44
-					<input type="radio" name="age" id="35-44" value="35-44">
-					<span class="checkmark"></span>
-				</label>
-				
-				<label class="container">  45-54
-					<input type="radio" name="age" id="45-54" value="45-54">
-					<span class="checkmark"></span>
-				</label>
-				
-				<label class="container"> 55-64
-					<input type="radio" name="age" id="55-64" value="55-64">
-					<span class="checkmark"> </span>
-				</label>
-				
-				<label class="container"> 65+
-					<input type="radio" name="age" id="65+" value="65+">
-					<span class="checkmark"></span>
-				</label>
-
-			</div>
-
-
-			<p> I would describe my gender as : </p>
-			<input type="text" id="gender-data" name="gender">
-			<label for="gender"> </label>
-
-			<!-- To choose from a dropdown list..? -->
-			<p> I would describe my nationality as : </p>
-			<input type="text" id="nationality-data" name="nationality">
-			<label for="nationality"> </label>
-
-
-			<p> The countr(ies) that I spent most of my formative years in was: </p>
-			<input type="text" id="formative-data" name="formative">
-			<label for="nationality"> </label>
-
-
-			<div class="submit">
-				<p>
-					<button id="submit-demographics" class="button"> Submit </button>
-				</p>
-			</div>
-
-			<!-- to-do, make this work -->
-			<!-- <script>
-				function deleteAfterClick() {
-					var demographicButton = document.getElementById("submit-demographics");
-					demographicButton.style.visibility = "hidden";
-				}
-			</script> -->
+			</form>
 
 
 		</div>
@@ -300,11 +294,24 @@
 
 		<div class="navi">
 			<p>
-				<button id="participant-next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
-				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<button id="participant-next-button" onclick="nextPage()" class="button" style="visibility:hidden;"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> contact  </a>
 				<span id="page-ref" class="page-ref"> </span>
 			</p>
 		</div>
+
+
+		
+				<script>
+					function deleteAfterClick() {
+						var demographicButton = document.getElementById("submit-demographics");
+						demographicButton.style.visibility = "hidden";
+
+						var nextButton = document.getElementById("participant-next-button"); 
+						nextButton.style.visibility = "visible";
+					}
+				</script>
+	
 
 
 	</div>
@@ -315,262 +322,263 @@
 
 	<div class="page" id="gold-msi">
 
+
 		<div class="main">
 			<h2> Musical Background Questionnaire </h2>
 
-			<p>Please answer the following questions as accurately as possible:</p>
+			<form>
 
-			<p>In the past twelve months, I have attended  ... live music events:</p>
+				<p>Please answer the following questions as accurately as possible:</p>
 
-			<p>
-				<div id="goldmsi-events">
+				<p>In the past twelve months, I have attended ... live music events:</p>
 
-					<label class="container"> 0-1
-						<input type="radio"  name="events" id="events1" value="0-1">
-						<span class="checkmark"></span>
-					</label>
-					
-					<label class="container"> 2-3
-						<input type="radio" name="events" id="events2" value="2-3">
-						<span class="checkmark"></span>
-					</label>
-					
-					<label class="container"> 4-6
-						<input type="radio" checked="checked" name="events" id="events3" value="4-6">
-						<span class="checkmark"> </span>
-					</label>
-
-					
-					<label class="container"> 7-10
-						<input type="radio" name="events" id="events4" value="7-10">
-						<span class="checkmark"> </span>
-					</label>
-
-					
-					<label class="container"> 11+ 
-						<input type="radio" name="events" id="events5" value="11+">
-						<span class="checkmark"></span>
-					</label>
-
-			
-
-				</div>
-			</p>
-
-
-
-			<p> I listen attentively to music for ... daily:</p>
-
-			<p>
-				<div id="goldmsi-listen">
-
-					<label class="container"> 0-15 min
-						<input type="radio"  name="listening" id="listening1" value="0-15">
-						<span class="checkmark"></span>
-					</label>
-
-					<label class="container"> 15-30 min
-						<input type="radio" name="listening" id="listening2" value="15-30">
-						<span class="checkmark"></span>
-					</label>
-
-					<label class="container"> 30-60 min
-						<input type="radio" checked="checked" name="listening" id="listening3" value="30-60">
-						<span class="checkmark"></span>
-					</label>
-
-					<label class="container"> 1-2 hrs
-						<input type="radio" name="listening" id="listening4" value="1-2">
-						<span class="checkmark"></span>
-					</label>
-					
-					<label class="container"> 2-4 hrs
-						<input type="radio" name="listening" id="listening5" value="2-4">
-						<span class="checkmark"></span>
-					</label>
-
-					<label class="container"> 4+ hrs
-						<input type="radio" name="listening" id="listening6" value="4+">
-						<span class="checkmark"></span>
-					</label>
-				
-
-				</div>
-			</p>
-
-
-			<p> I would not consider myself a musician: </p>
-
-			<p>
-				<div id="goldmsi-musicianship">
-
-					<label class="container"> Strongly Disagree
-						<input type="radio" name="musician" id="musician1" value="-2">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container">  Disagree
-						<input type="radio" name="musician" id="musician2" value="-1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container">  Neither agree or disagree
-						<input type="radio" checked="checked" name="musician" id="musician3" value="0">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Agree
-						<input type="radio" name="musician" id="musician4" value="1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Strongly Agree 
-						<input type="radio" name="musician" id="musician5" value="2">
-						<span class="checkmark"> </span>
-					</label>
-
-				</div>
-			</p>
-
-
-			<p> Pieces of music rarely evoke emotions for me: </p>
-			<p>
-				<div id="goldmsi-emotions">
-
-					<label class="container"> Strongly Disagree
-						<input type="radio" name="emotions1" id="emotions11" value="-2">
-						<span class="checkmark"> </span>
-					</label>
-
-
-					<label class="container"> Disagree
-						<input type="radio" name="emotions1" id="emotions12" value="-1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Neither agree or disagree
-						<input type="radio" checked="checked" name="emotions1" id="emotions13" value="0">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Agree
-						<input type="radio" name="emotions1" id="emotions14" value="1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container">  Strongly Agree
-						<input type="radio" name="emotions1" id="emotions15" value="2">
-						<span class="checkmark"> </span>
-					</label>
-
-
-				</div>
-
-			</p>
-
-
-			<p> Music can evoke my memories of past people and places: </p>
-
-			<p>
-				<div id="goldmsi-emotions2">
-
-
-					<label class="container"> Strongly Disagree
-						<input type="radio" name="emotions2" id="emotions21" value="-2">
-						<span class="checkmark"> </span>
-					</label>
-
-
-					<label class="container"> Disagree
-						<input type="radio" name="emotions2" id="emotions22" value="-1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Neither agree or disagree
-						<input type="radio" checked="checked" name="emotions2" id="emotions23" value="0">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Agree
-						<input type="radio" name="emotions2" id="emotions24" value="1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container">  Strongly Agree
-						<input type="radio" name="emotions2" id="emotions25" value="2">
-						<span class="checkmark"> </span>
-					</label>
-
-				</div>
-			</p>
-
-
-			<p>I am able to talk about the emotions that a piece of music evokes for me: </p>
-			<p>
-				<div id="goldmsi-emotions3">
-
-					<label class="container"> Strongly Disagree
-						<input type="radio" name="emotions3" id="emotions31" value="-2">
-						<span class="checkmark"> </span>
-					</label>
-
-
-					<label class="container"> Disagree
-						<input type="radio" name="emotions3" id="emotions32" value="-1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Neither agree or disagree
-						<input type="radio" checked="checked" name="emotions3" id="emotions33" value="0">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container"> Agree
-						<input type="radio" name="emotions3" id="emotions34" value="1">
-						<span class="checkmark"> </span>
-					</label>
-
-					<label class="container">  Strongly Agree
-						<input type="radio" name="emotions3" id="emotions35" value="2">
-						<span class="checkmark"> </span>
-					</label>
-				</div>
-			</p>
-
-
-			<div class="submit">
 				<p>
-					<button id="submit-goldsmiths" class="button"> Submit </button>
+					<div id="goldmsi-events">
+
+						<label class="container"> 0-1
+							<input type="radio" name="events" id="events1" value="0-1">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 2-3
+							<input type="radio" name="events" id="events2" value="2-3">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 4-6
+							<input type="radio" name="events" id="events3" value="4-6">
+							<span class="checkmark"> </span>
+						</label>
+
+
+						<label class="container"> 7-10
+							<input type="radio" name="events" id="events4" value="7-10">
+							<span class="checkmark"> </span>
+						</label>
+
+
+						<label class="container"> 11+
+							<input type="radio" name="events" id="events5" value="11+">
+							<span class="checkmark"></span>
+						</label>
+
+
+
+					</div>
 				</p>
-			</div>
-			</p>
+
+
+
+				<p> I listen attentively to music for ... daily:</p>
+
+				<p>
+					<div id="goldmsi-listen">
+
+						<label class="container"> 0-15 min
+							<input type="radio" name="listening" id="listening1" value="0-15">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 15-30 min
+							<input type="radio" name="listening" id="listening2" value="15-30">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 30-60 min
+							<input type="radio"  name="listening" id="listening3" value="30-60">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 1-2 hrs
+							<input type="radio" name="listening" id="listening4" value="1-2">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 2-4 hrs
+							<input type="radio" name="listening" id="listening5" value="2-4">
+							<span class="checkmark"></span>
+						</label>
+
+						<label class="container"> 4+ hrs
+							<input type="radio" name="listening" id="listening6" value="4+">
+							<span class="checkmark"></span>
+						</label>
+
+
+					</div>
+				</p>
+
+
+				<p> I would not consider myself a musician: </p>
+
+				<p>
+					<div id="goldmsi-musicianship">
+
+						<label class="container"> Strongly Disagree
+							<input type="radio" name="musician" id="musician1" value="-2">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Disagree
+							<input type="radio" name="musician" id="musician2" value="-1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Neither agree or disagree
+							<input type="radio"  name="musician" id="musician3" value="0">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Agree
+							<input type="radio" name="musician" id="musician4" value="1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Strongly Agree
+							<input type="radio" name="musician" id="musician5" value="2">
+							<span class="checkmark"> </span>
+						</label>
+
+					</div>
+				</p>
+
+
+				<p> Pieces of music rarely evoke emotions for me: </p>
+				<p>
+					<div id="goldmsi-emotions">
+
+						<label class="container"> Strongly Disagree
+							<input type="radio" name="emotions1" id="emotions11" value="-2">
+							<span class="checkmark"> </span>
+						</label>
+
+
+						<label class="container"> Disagree
+							<input type="radio" name="emotions1" id="emotions12" value="-1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Neither agree or disagree
+							<input type="radio"  name="emotions1" id="emotions13" value="0">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Agree
+							<input type="radio" name="emotions1" id="emotions14" value="1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Strongly Agree
+							<input type="radio" name="emotions1" id="emotions15" value="2">
+							<span class="checkmark"> </span>
+						</label>
+
+
+					</div>
+
+				</p>
+
+
+				<p> Music can evoke my memories of past people and places: </p>
+
+				<p>
+					<div id="goldmsi-emotions2">
+
+
+						<label class="container"> Strongly Disagree
+							<input type="radio" name="emotions2" id="emotions21" value="-2">
+							<span class="checkmark"> </span>
+						</label>
+
+
+						<label class="container"> Disagree
+							<input type="radio" name="emotions2" id="emotions22" value="-1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Neither agree or disagree
+							<input type="radio"  name="emotions2" id="emotions23" value="0">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Agree
+							<input type="radio" name="emotions2" id="emotions24" value="1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Strongly Agree
+							<input type="radio" name="emotions2" id="emotions25" value="2">
+							<span class="checkmark"> </span>
+						</label>
+
+					</div>
+				</p>
+
+
+				<p>I am able to talk about the emotions that a piece of music evokes for me: </p>
+				<p>
+					<div id="goldmsi-emotions3">
+
+						<label class="container"> Strongly Disagree
+							<input type="radio" name="emotions3" id="emotions31" value="-2">
+							<span class="checkmark"> </span>
+						</label>
+
+
+						<label class="container"> Disagree
+							<input type="radio" name="emotions3" id="emotions32" value="-1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Neither agree or disagree
+							<input type="radio"  name="emotions3" id="emotions33" value="0">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Agree
+							<input type="radio" name="emotions3" id="emotions34" value="1">
+							<span class="checkmark"> </span>
+						</label>
+
+						<label class="container"> Strongly Agree
+							<input type="radio" name="emotions3" id="emotions35" value="2">
+							<span class="checkmark"> </span>
+						</label>
+					</div>
+				</p>
+
+
+				<div class="submit">
+					<p>
+						<button id="submit-goldsmiths" class="button" onclick="secondDeleteAfterClick()"> Submit </button>
+					</p>
+				</div>
+				</p>
+
+
+			</form>
 
 
 		</div>
 
 		<div class="navi">
 			<p>
-				<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
-				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
+				<button id="gold-next-button" onclick="nextPage()" class="button" style="visibility:hidden;"> Next </button>
+				<a href="mailto:elizabeth.wilson@qmul.ac.uk">contact  </a>
 				<span id="page-ref" class="page-ref"> </span>
 			</p>
 		</div>
-	</div>
 
 
-	<div class="page" id="usage-test">
+		<script>
+			function secondDeleteAfterClick() {
+				var demographicButton = document.getElementById("submit-goldsmiths");
+				demographicButton.style.visibility = "hidden";
 
-		<div class="main">
-			<!-- onload="TestApplication.init()" -->
-			<h2> Using The Interface ..</h2>
-		</div>
-		<div class="navi">
-			<p>
-				<button id="next-button" onclick="nextPage()" class="button" value="hide"> Next </button>
-				<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me </a>
-				<span id="page-ref" class="page-ref"> </span>
-			</p>
-		</div>
+				var goldNextButton = document.getElementById("gold-next-button"); 
+				goldNextButton.style.visibility = "visible";
+			}
+		</script>
 	</div>
 
 
@@ -580,6 +588,14 @@
 
 		<div class="main" id="app-1" onload="Application.init()">
 
+			<template>
+				<div class="container" style="left:80%">
+					<div class="loading-bar" >
+						<div class="percentage" :style="{'width' : percentage + '%'}"></div>
+					</div>
+				</div>
+			</template>
+
 
 			<p id="message1" class="message-tag"> {{ message0 }} </p>
 
@@ -588,6 +604,7 @@
 					<p id="message3" class="message-tag"> {{ message2 }} </p>
 
 					<p id="message4" class="message-tag"> {{ message3 }} </p>
+
 
 					<p>
 						<div class="audio-player">
@@ -600,28 +617,50 @@
 
 					</p>
 
-					<div class="application" onload="Application.init()" style="margin:0px; padding:0px;">
-						<canvas width="320" height="320" id="canvas">
-							<!-- 	<span id="marker" ></span>	 -->
+					
+
+					<div class="application" style="margin:0px; padding:0px;">
+						<canvas width="320" height="320" id="canvas" style="position:relative; top:40%; left:37%;">
+							<span id="canvas-marker"></span>
 							Your browser does not support the HTML5 Canvas
 						</canvas>
-						<div style="font-size:40px;font-weight:bold" id="label"> </div>
+						<div style="font-size:40px;font-weight:bold; position:relative; top:-400px; left:45%" id="label"> </div>
 					</div>
 
 
+					<div class="submit">
+						<p>
+							<button id="submit-vue" class="button" onclick="thirdDeleteAfterClick()" style="visibility: hidden;"> Submit </button>
+						</p>
+					</div>
+
+					
 
 					<div class="navi">
 						<p>
 							<button id="next-button-vue" v-on:click="setNewValue()" onclick="buttonPressed()"
 								class="button" value="hide"> Next </button>
-							<a href="mailto:elizabeth.wilson@qmul.ac.uk"> email me</a>
+							<a href="mailto:elizabeth.wilson@qmul.ac.uk"> contact </a>
 							<span id="page-ref" class="page-ref"> </span>
 						</p>
+					
+					
 					</div>
 
 
 
 		</div>
+
+
+		<script>
+			function thirdDeleteAfterClick() {
+				var submitButton = document.getElementById("submit-vue");
+				submitButton.style.visibility = "hidden";
+
+				var nextButton = document.getElementById("next-button-vue"); 
+				nextButton.style.visibility = "visible";
+			}
+		</script>
 
 
 	</div>

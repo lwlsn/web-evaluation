@@ -1,7 +1,7 @@
 
 //  Firebase configuration -- hide api keys ? 
 var firebaseConfig = {
-  apiKey: config.apiKey,
+  apiKey: "",
   authDomain: "listening-study-1.firebaseapp.com",
   databaseURL: "https://listening-study-1.firebaseio.com",
   projectId: "listening-study-1",
@@ -18,7 +18,12 @@ const db = firebase.firestore();
 //get references from document to send to database from demographics page
 const participantButton = document.querySelector('#submit-demographics');
 const goldsmithsButton = document.querySelector('#submit-goldsmiths');
+const vueButton = document.querySelector('#next-button-vue');
+const vueSubmitButton = document.querySelector('#submit-vue');
 
+
+// generate some unique participant id for each dataset.. 
+const participantId = Math.floor(Math.random()*10000);
 
 
 //data submission function- demographics page.. 
@@ -46,6 +51,7 @@ participantButton.addEventListener('click', (evt) => {
   var givenFormative = document.getElementById('formative-data').value;
 
   db.collection('StudyData').add({
+     id: participantId,
      employment: selectedEmployment, 
      age: selectedAge,
      gender: givenGender, 
@@ -104,6 +110,7 @@ goldsmithsButton.addEventListener('click', (evt) => {
   });
 
   db.collection('StudyData').add({
+    id: participantId,
     events: selectedEvents, 
     listening: selectedListening, 
     musicianship: selectedMusicianship, 
@@ -114,6 +121,50 @@ goldsmithsButton.addEventListener('click', (evt) => {
   })
 
 })
+
+
+//data submission function, vue pages 
+
+
+vueSubmitButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+
+  console.log(participantId);
+})
+
+
+// vueButton.addEventListener( 'click', (evt) => {
+//   evt.preventDefault();
+
+//   console.log(participantId);
+
+//   // db.collection('StudyData').add({
+//   //   id: participantId
+//   // })
+
+// })
+
+
+// var nextButtonVue = document.getElementById('next-button-vue');
+
+// nextButtonVue.addEventListener('click', (evt) => {
+//     console.log(participantId);
+// })
+
+
+
+// vueButton.addEventListener('click', (evt) => {
+//   evt.preventDefault();
+
+//   console.log(x, y);
+
+//   db.collection('StudyData').add({
+//     id: participantId
+
+//   })
+
+// })
+
 
 
 
