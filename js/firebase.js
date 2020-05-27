@@ -1,7 +1,7 @@
 
 //  Firebase configuration -- hide api keys ? 
 var firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyBF9mqWu9BHIvCI4iN_1SQxMXauNXIt21A",
   authDomain: "listening-study-1.firebaseapp.com",
   databaseURL: "https://listening-study-1.firebaseio.com",
   projectId: "listening-study-1",
@@ -18,12 +18,11 @@ const db = firebase.firestore();
 //get references from document to send to database from demographics page
 const participantButton = document.querySelector('#submit-demographics');
 const goldsmithsButton = document.querySelector('#submit-goldsmiths');
-const vueButton = document.querySelector('#next-button-vue');
-const vueSubmitButton = document.querySelector('#submit-vue');
+// const vueNextButton = document.querySelector('#next-button-vue');
 
 
 // generate some unique participant id for each dataset.. 
-const participantId = Math.floor(Math.random()*10000);
+var participantId = Math.floor(Math.random()*10000);
 
 
 //data submission function- demographics page.. 
@@ -64,7 +63,8 @@ participantButton.addEventListener('click', (evt) => {
 
 //data submission function - goldsmiths msi page.. 
 goldsmithsButton.addEventListener('click', (evt) => {
-  evt.preventDefault(); 
+  evt.preventDefault();
+
 
   var selectedEvents;
   document.getElementsByName("events").forEach(function (elm) {
@@ -120,57 +120,34 @@ goldsmithsButton.addEventListener('click', (evt) => {
 
   })
 
-})
+});
 
 
-//data submission function, vue pages 
 
-
-vueSubmitButton.addEventListener('click', (evt) => {
-  evt.preventDefault();
-
-  console.log(participantId);
-})
-
-
-// vueButton.addEventListener( 'click', (evt) => {
+// vueNextButton.addEventListener('click', (evt) => {
 //   evt.preventDefault();
+//   // console.log(participantId);
 
-//   console.log(participantId);
+//   const rect = canvas.getBoundingClientRect();
 
-//   // db.collection('StudyData').add({
-//   //   id: participantId
-//   // })
+//   var x = (event.clientX-rect.left)/320;
+//   var y = 1 - ((event.clientY-rect.top)/320);
 
-// })
+//   var audio = document.getElementById('audio');
+//   var audioFile = audio.src;
 
-
-// var nextButtonVue = document.getElementById('next-button-vue');
-
-// nextButtonVue.addEventListener('click', (evt) => {
-//     console.log(participantId);
-// })
-
-
-
-// vueButton.addEventListener('click', (evt) => {
-//   evt.preventDefault();
-
-//   console.log(x, y);
+//   // console.log(x, y);
 
 //   db.collection('StudyData').add({
-//     id: participantId
-
+//     id: participantId, 
+//     xPos: x,
+//     yPos: y, 
+//     audio: audioFile
 //   })
 
-// })
+// });
 
 
 
 
-/* 
-to dos 
-- convert nationality, formative into dropdown list, checkbox.. 
-- submit in one reference rather than individually, but allow data save if end value not clicked? 
-- submit data from dropdown list.. 
-*/
+
