@@ -1,7 +1,7 @@
 
 //  Firebase configuration -- hide api keys ? 
 var firebaseConfig = {
-  apiKey: "AIzaSyBF9mqWu9BHIvCI4iN_1SQxMXauNXIt21A",
+  apiKey: "",
   authDomain: "listening-study-1.firebaseapp.com",
   databaseURL: "https://listening-study-1.firebaseio.com",
   projectId: "listening-study-1",
