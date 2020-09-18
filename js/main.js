@@ -1,3 +1,44 @@
+		function thirdDeleteAfterClick() {
+			var submitButton = document.getElementById("submit-vue");
+			var nextButton = document.getElementById("next-button-vue");
+
+			submitButton.style.visibility = "hidden";
+			nextButton.style.visibility = "visible";
+
+		}
+
+
+
+		// const vueNextButton = document.querySelector('#next-button-vue');
+
+
+		// vueNextButton.addEventListener('click', (evt) => {
+		// evt.preventDefault();
+		// // console.log(participantId);
+
+		// const rect = canvas.getBoundingClientRect();
+
+		// var x = (evt.clientX-rect.left)/320;
+		// var y = 1 - ((evt.clientY-rect.top)/320);
+
+		// var audio = document.getElementById('audio');
+		// var audioFile = audio.src;
+
+		// console.log(x, y);
+
+		// db.collection('StudyData').add({
+		// 	id: participantId, 
+		// 	xPos: x,
+		// 	yPos: y, 
+		// 	audio: audioFile
+		// })
+
+		// });
+
+
+
+
+
 
 
 //Update button on click..
@@ -8,7 +49,7 @@ var count = 0;
 
 var paragraph1 = [
 "Please test the audio below and adjust to a comfortable level.",
-"", 
+"Once it is at a comfortable level, DO NOT ADJUST throughout the test.", 
 "", 
 ""]
 
@@ -178,7 +219,10 @@ var app = new Vue ({
     percentage: 0
   }, 
   methods: {
+
     setNewValue: function() {
+
+      // window.location.reload(); 
       
       if (count == 0){
 
@@ -373,7 +417,7 @@ var app = new Vue ({
       // console.log(count);
     }
   }
-})
+}) 
 
 
 //shuffle function to randomise playback order.. 
@@ -397,18 +441,24 @@ var audio = document.getElementById('audio');
 audio.src = "assets/sine.wav";
 audio.style.visibility = "visible";
 // contents of audio buffer .. 
-var audioFiles = ["assets/LV_LA/LV_LA_1.wav", "assets/LV_LA/LV_LA_2.wav", "assets/LV_LA/LV_LA_3.wav",
-"assets/MV_LA/MV_LA_1.wav", "assets/MV_LA/MV_LA_2.wav", "assets/MV_LA/MV_LA_3.wav",
-"assets/HV_LA/HV_LA_1.wav", "assets/HV_LA/HV_LA_2.wav", "assets/HV_LA/HV_LA_3.wav",
-"assets/LV_MA/LV_MA_1.wav", "assets/LV_MA/LV_MA_2.wav", "assets/LV_MA/LV_MA_3.wav",
-"assets/MV_MA/MV_MA_1.wav", "assets/MV_MA/MV_MA_2.wav", "assets/MV_MA/LV_MA_3.wav",
-"assets/HV_MA/HV_MA_1.wav", "assets/HV_MA/HV_MA_2.wav", "assets/HV_MA/HV_MA_3.wav",
-"assets/LV_HA/LV_HA_1.wav", "assets/LV_HA/LV_HA_2.wav", "assets/LV_HA/LV_HA_3.wav",
-"assets/MV_HA/MV_HA_1.wav", "assets/MV_HA/MV_HA_2.wav", "assets/MV_HA/MV_HA_3.wav",
-"assets/HV_HA/HV_HA_1.wav", "assets/HV_HA/HV_HA_2.wav", "assets/HV_HA/HV_HA_3.wav"];
+var audioFiles = 
+["assets/rhythms/LV_LA/LV_LA_1.wav", "assets/rhythms/LV_LA/LV_LA_2.wav", "assets/rhythms/LV_LA/LV_LA_3.wav",
+"assets/rhythms/MV_LA/MV_LA_1.wav", "assets/rhythms/MV_LA/MV_LA_2.wav", "assets/rhythms/MV_LA/MV_LA_3.wav",
+"assets/rhythms/HV_LA/HV_LA_1.wav", "assets/rhythms/HV_LA/HV_LA_2.wav", "assets/rhythms/HV_LA/HV_LA_3.wav",
+"assets/rhythms/LV_MA/LV_MA_1.wav", "assets/rhythms/LV_MA/LV_MA_2.wav", "assets/rhythms/LV_MA/LV_MA_3.wav",
+"assets/rhythms/MV_MA/MV_MA_1.wav", "assets/rhythms/MV_MA/MV_MA_2.wav", "assets/rhythms/MV_MA/MV_MA_3.wav",
+"assets/rhythms/HV_MA/HV_MA_1.wav", "assets/rhythms/HV_MA/HV_MA_2.wav", "assets/rhythms/HV_MA/HV_MA_3.wav",
+"assets/rhythms/LV_HA/LV_HA_1.wav", "assets/rhythms/LV_HA/LV_HA_2.wav", "assets/rhythms/LV_HA/LV_HA_3.wav",
+"assets/rhythms/MV_HA/MV_HA_1.wav", "assets/rhythms/MV_HA/MV_HA_2.wav", "assets/rhythms/MV_HA/MV_HA_3.wav",
+"assets/rhythms/HV_HA/HV_HA_1.wav", "assets/rhythms/HV_HA/HV_HA_2.wav", "assets/rhythms/HV_HA/HV_HA_3.wav"];
+
+var melodyFiles = [
+"assets/melodies/LV_LA/LV_LA_1.wav"
+];
 
 function updateAudio() {
   // var audio= document.getElementById('audio');
+  console.log(a);
   if (a == 0) {
     shuffle(audioFiles);
     audio.style.visibility = "visible";
@@ -424,105 +474,129 @@ function updateAudio() {
     audio.src = audioFiles[0];
     a=3; 
   } 
-   else if (a == 3) {
+  else if (a == 3) {
     audio.src = audioFiles[1];
     a=4; 
   } 
   else if (a == 4) {
     audio.src = audioFiles[2];
-
+    a=5;
   }
   else if (a == 5) {
     audio.src = audioFiles[3];
+    a=6;
   }
   else if (a == 6) {
     audio.src = audioFiles[4];
+    a=7;
   }
   else if (a == 7) {
     audio.src = audioFiles[5];
+    a=8;
   }
 
   else if (a == 8) {
     audio.src = audioFiles[6];
+    a=9;
   }
   else if (a == 9) {
     audio.src = audioFiles[7];
+    a=10;
   }
 
   else if (a == 10) {
     audio.src = audioFiles[8];
+    a=11;
   }
 
   else if (a == 11) {
     audio.src = audioFiles[9];
+    a=12;
   }
 
   else if (a == 12) {
     audio.src = audioFiles[10];
+    a=13;
   }
 
   else if (a == 13) {
     audio.src = audioFiles[11];
+    a=14;
   }
 
   else if (a == 14) {
     audio.src = audioFiles[12];
+    a=15;
   }
 
   else if (a == 15) {
     audio.src = audioFiles[13];
+    a=16;
   }
 
   else if (a == 16) {
     audio.src = audioFiles[14];
+    a=17;
   }
 
   else if (a == 17) {
     audio.src = audioFiles[15];
+    a=18;
   }
 
   else if (a == 18) {
     audio.src = audioFiles[16];
+    a=19;
   }
 
   else if (a == 19) {
     audio.src = audioFiles[17];
+    a=20;
   }
 
   else if (a == 20) {
     audio.src = audioFiles[18];
+    a=21;
   }
 
   else if (a == 21) {
     audio.src = audioFiles[19];
+    a=22;
   }
 
   else if (a == 22) {
     audio.src = audioFiles[20];
+    a=23;
   }
 
   else if (a == 23) {
     audio.src = audioFiles[21];
+    a=24;
   }
 
   else if (a == 24) {
     audio.src = audioFiles[22];
+    a=25;
   }
 
   else if (a == 25) {
     audio.src = audioFiles[23];
+    a=26;
   }
 
   else if (a == 26) {
     audio.src = audioFiles[24];
+    a=27;
   }
 
   else if (a == 27) {
     audio.src = audioFiles[25];
+    a=28;
   }
 
   else if (a == 28) {
     audio.src = audioFiles[26];
+    a=29;
   }
 
   else if ( a >= 28) {
@@ -575,10 +649,40 @@ function toggleCanvas() {
 function buttonPressed() {
   updateAudio(); 
   toggleCanvas();
+  // Application.clicked();
 
-  // Application.resetMarker();
+  const vueNextButton = document.querySelector('#next-button-vue');
+  const db = firebase.firestore();
+  const rect = canvas.getBoundingClientRect();
+
+  var x = (event.clientX-rect.left)/320;
+  var y = 1 - ((event.clientY-rect.top)/320);
+
+  var audio = document.getElementById('audio');
+  var audioFile = audio.src;
+
+  vueNextButton.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    console.log(x, y);
+  
+    db.collection('StudyData').add({
+      id: participantId,
+      xPos: x,
+      yPos: y, 
+      audio: audioFile
+    });
+  });
 }
 
+
+
+// email prize draw submission
+function clearText() {
+  var emailtextval = document.getElementById('email-text-input'); 
+  // emailtextval.value = "";
+  var submittextval = document.getElementById('submit-message');
+  submittextval.style.visibility = "visible";
+}
 
 // Show hide canvas ? << fix meee 
 // var canvas = document.getElementById('canvas');

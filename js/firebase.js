@@ -1,7 +1,7 @@
 
 //  Firebase configuration -- hide api keys ? 
 var firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyBF9mqWu9BHIvCI4iN_1SQxMXauNXIt21A",
   authDomain: "listening-study-1.firebaseapp.com",
   databaseURL: "https://listening-study-1.firebaseio.com",
   projectId: "listening-study-1",
@@ -16,9 +16,12 @@ const db = firebase.firestore();
 
 
 //get references from document to send to database from demographics page
+const emailButton = document.querySelector('#email-submit-button');
 const participantButton = document.querySelector('#submit-demographics');
 const goldsmithsButton = document.querySelector('#submit-goldsmiths');
+// const vueSubmitButton = document.querySelector('#submit-vue');
 // const vueNextButton = document.querySelector('#next-button-vue');
+
 
 
 // generate some unique participant id for each dataset.. 
@@ -60,10 +63,27 @@ participantButton.addEventListener('click', (evt) => {
 }); 
 
 
+//data submission to firebase of email address.
+emailButton.addEventListener('click', (evt)=> {
+  evt.preventDefault();
+
+  var emailText; 
+  emailText = document.getElementById('email-text-input').value;
+  
+  db.collection('StudyData').add({
+    email: emailText
+  })
+
+  emailText.value = "";
+
+})
+
 
 //data submission function - goldsmiths msi page.. 
 goldsmithsButton.addEventListener('click', (evt) => {
   evt.preventDefault();
+
+  // console.log(participantId);
 
 
   var selectedEvents;
@@ -130,13 +150,13 @@ goldsmithsButton.addEventListener('click', (evt) => {
 
 //   const rect = canvas.getBoundingClientRect();
 
-//   var x = (event.clientX-rect.left)/320;
-//   var y = 1 - ((event.clientY-rect.top)/320);
+//   var x = (evt.clientX-rect.left)/320;
+//   var y = 1 - ((evt.clientY-rect.top)/320);
 
 //   var audio = document.getElementById('audio');
 //   var audioFile = audio.src;
 
-//   // console.log(x, y);
+//   console.log(x, y);
 
 //   db.collection('StudyData').add({
 //     id: participantId, 

@@ -119,19 +119,21 @@ p {
     max-width: 1400px;
     display: block;
     margin: auto;
-    height: 600px;
+    height: 800px;
     background-color: white;
     padding: 5px;
+    padding-bottom: 50px;
     overflow-y: scroll;
     overflow-x: hidden;
+    position: relative;
 }
 
 
 
 /* Footer , naviagation button */
 .navi {
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 10px;
     box-sizing: border-box;
     width: 100%;
     padding-top: 10px;
@@ -175,6 +177,14 @@ p {
     top:50%; 
     left:50%;
 }
+
+.button2 {
+    border: 2px solid black;
+    margin: 20px 0px; 
+    position:relative;
+}
+
+
 
 .button:hover {
     width: 100px;
@@ -242,7 +252,7 @@ canvas {
 /* vue controlled text positioning*/
 
 .message-tag {
-	text-align: center;
+    text-align: justify;
 }
 
 

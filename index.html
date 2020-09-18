@@ -67,8 +67,25 @@
 			<p> After listening, you will be asked to give an evaluative rating of the perceived emotional content to
 				the audio. To do so, you be asked to place a slider on a 2-dimensional grid and rate the pieces listened
 				to and rate them in terms of how positive/negative they are and how high/low energy they are. </p>
+			
+			<br />
+			<p> 
+			If you wish to enter into the £100 voucher raffle prize draw, please enter your email below. Note this 
+			email address will not be associated with your results and data will still be anonymised. </p>
+
+
+			<input type="text" value="" id="email-text-input" style="width: 250px;" />
+			<br />
+			<input type="button" value="Submit" class="button2" id="email-submit-button"  onclick="clearText()" />
+			<br />
+			<p style="visibility: hidden; color:green" id="submit-message">​ Your email has been entered into the prize draw!</p>
+			
+
 
 		</div>
+			
+		
+
 
 		<div class="navi">
 			<p>
@@ -130,6 +147,15 @@
 				</label>
 			</p>
 
+
+			<p>
+				<label class="container" id="consent">
+					I confirm that I am over 18 years of age. 
+					<input type ="checkbox" id="consent5" form="survey" value="yes">
+					<span class="checkmark"> </span>
+				</label>
+			</p>
+
 		</div>
 
 		<div class="navi">
@@ -144,25 +170,23 @@
 			$('#consent-button').click(function () {
 				//array of booleans checking whether each val has been clicked or not.. 
 				var checkboxTicked = [($('#consent1').prop('checked')), ($('#consent2').prop('checked')),
-				($('#consent3').prop('checked')), ($('#consent4').prop('checked'))];
-				console.log(checkboxTicked[0], checkboxTicked[1], checkboxTicked[2], checkboxTicked[3]);
+				($('#consent3').prop('checked')), ($('#consent4').prop('checked')),($('#consent5').prop('checked')), ];
+				// console.log(checkboxTicked[0], checkboxTicked[1], checkboxTicked[2], checkboxTicked[3]);
 
 				var isOkay = false; // set variable to false, only allow to refresh to next page in update to true.
 				// when all boxes checked, set condition to true
-				if (checkboxTicked[0] == true && checkboxTicked[1] == true && checkboxTicked[2] && checkboxTicked[3]) {
+				if (checkboxTicked[0] == true && checkboxTicked[1] == true && checkboxTicked[2] && checkboxTicked[3] && checkboxTicked[4] == true) {
 					isOkay = true;
 				}
 				// when false alert and forbid users from commencing.. 
 				if (isOkay == false) {
-					alert('all data consent questions must be agreed to..')
+					alert('All data consent questions must be agreed to before continuing.')
 				} else {
 					nextPage();
 				}
 			})
 
 		</script>
-
-
 
 	</div>
 
@@ -279,7 +303,6 @@
 				<p> The countr(ies) that I spent most of my formative years in was: </p>
 				<input type="text" id="formative-data" name="formative">
 				<label for="nationality"> </label>
-
 
 
 
@@ -606,8 +629,8 @@
 
 			<p id="message1" class="message-tag"> {{ message0 }} </p>
 
-			<p id="message2" class="message-tag"> {{message1 }}
-			<p>
+			<p id="message2" class="message-tag"> {{ message1 }}
+			</p>
 
 			<p id="message3" class="message-tag"> {{ message2 }} </p>
 
@@ -619,7 +642,7 @@
 
 				<audio id="audio" class="audio-tag" controls>
 					<source src="assets/HV-LA.wav" id="track" type="audio/wav">
-					Your browser does not support the audio element!
+					Your browser does not support the audio element
 				</audio>
 			</div>
 
@@ -635,13 +658,10 @@
 				<div style="font-size:40px;font-weight:bold; position:relative; top:-400px; left:45%" id="label"> </div>
 			</div>
 
-
-			<div class="submit">
-				<p>
-					<button id="submit-vue" class="button" onclick="thirdDeleteAfterClick()"
-						style="visibility: hidden;"> Submit </button>
-				</p>
-			</div>
+		
+			<button id="submit-vue" class="button" onclick="thirdDeleteAfterClick()"
+				style="visibility: hidden;"> Submit </button>
+		
 
 
 			<div class="navi">
@@ -656,67 +676,13 @@
 			</div>
 
 
-			<script>
-
-
-				function thirdDeleteAfterClick() {
-					var submitButton = document.getElementById("submit-vue");
-					var nextButton = document.getElementById("next-button-vue");
-
-					submitButton.style.visibility = "hidden";
-					nextButton.style.visibility = "visible";
-
-				}
-
-
-
-				const vueNextButton = document.querySelector('#next-button-vue');
-
-
-				vueNextButton.addEventListener('click', (evt) => {
-				evt.preventDefault();
-				// console.log(participantId);
-
-				const rect = canvas.getBoundingClientRect();
-
-				var x = (event.clientX-rect.left)/320;
-				var y = 1 - ((event.clientY-rect.top)/320);
-
-				var audio = document.getElementById('audio');
-				var audioFile = audio.src;
-
-				// console.log(x, y);
-
-				db.collection('StudyData').add({
-					id: participantId, 
-					xPos: x,
-					yPos: y, 
-					audio: audioFile
-				})
-
-				});
-
-			</script>
-
 
 		</div>
 
 
 
-
-
-
-
-
-
-
-
 	</div>
 
-
-	<script type="text/javascript">
-
-	</script>
 
 
 

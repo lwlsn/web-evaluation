@@ -48,6 +48,36 @@ var Application = {
   },
 
 
+  //To do- how to remove marker on click of the next button. 
+  clicked() {
+    this.removeMarker();
+   
+  },
+
+  removeMarker() {
+    
+    // ctx.clearRect(0, 0, 320, 320);
+    
+    // this.marker.style.visibility = "hidden";
+
+
+    const rect = canvas.getBoundingClientRect();
+    var ctx = this.canvas.getContext("2d");
+
+    this.marker = {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+
+    var markerSize = 0;
+    if (this.marker) {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+    ctx.beginPath();
+    ctx.arc(this.marker.x, this.marker.y, markerSize, 0, Math.PI * 2, true);
+    ctx.fill();
+    }
+  }, 
+
   tl: { r: 200, g: 0, b: 0 },
   tr: { r: 200, g: 150, b: 0 },
   bl: { r: 0, g: 50, b: 100 },
@@ -177,7 +207,7 @@ var Application = {
     var x = (event.clientX-rect.left)/320;
     var y = 1 - ((event.clientY-rect.top)/320);
 
-    console.log(x,y);
+    // console.log(x,y);
 
     this.label.innerHTML = this.findMood(x, y);
   },
