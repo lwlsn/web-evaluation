@@ -1,7 +1,9 @@
+/* Sending data from the web interface to the firebase database */
+
 
 //  Firebase configuration -- hide api keys ? 
 var firebaseConfig = {
-  apiKey: "AIzaSyBF9mqWu9BHIvCI4iN_1SQxMXauNXIt21A",
+  apiKey: "",
   authDomain: "listening-study-1.firebaseapp.com",
   databaseURL: "https://listening-study-1.firebaseio.com",
   projectId: "listening-study-1",
@@ -51,6 +53,7 @@ participantButton.addEventListener('click', (evt) => {
   var givenGender = document.getElementById("gender-data").value;
   var givenNationality = document.getElementById("nationality-data").value;
   var givenFormative = document.getElementById('formative-data').value;
+  var givenGenres = document.getElementById('genres').value;
 
   db.collection('StudyData').add({
      id: participantId,
@@ -58,7 +61,8 @@ participantButton.addEventListener('click', (evt) => {
      age: selectedAge,
      gender: givenGender, 
      nationality: givenNationality, 
-     formative: givenFormative
+     formative: givenFormative, 
+     genres: givenGenres
   })
 }); 
 
@@ -71,6 +75,7 @@ emailButton.addEventListener('click', (evt)=> {
   emailText = document.getElementById('email-text-input').value;
   
   db.collection('StudyData').add({
+    id: participantId,
     email: emailText
   })
 
@@ -83,13 +88,11 @@ emailButton.addEventListener('click', (evt)=> {
 goldsmithsButton.addEventListener('click', (evt) => {
   evt.preventDefault();
 
-  // console.log(participantId);
 
-
-  var selectedEvents;
-  document.getElementsByName("events").forEach(function (elm) {
+  var selectedInstruments; 
+  document.getElementsByName("instruments").forEach(function (elm) {
     if (elm.checked) {
-      selectedEvents = elm.value;
+      selectedInstruments = elm.value;
     }
   });
 
@@ -99,6 +102,31 @@ goldsmithsButton.addEventListener('click', (evt) => {
       selectedListening = elm.value;
     }
   });
+
+  var selectedNewMusic;
+  document.getElementsByName("newmusic").forEach(function (elm) {
+    if (elm.checked) {
+      selectedNewMusic = elm.value;
+    }
+  });
+
+
+  var selectedTune;
+  document.getElementsByName("tune").forEach(function (elm) {
+    if (elm.checked) {
+      selectedTune = elm.value;
+    }
+  });
+
+
+
+  var selectedBeats;
+  document.getElementsByName("tune").forEach(function (elm) {
+    if (elm.checked) {
+      selectedBeats = elm.value;
+    }
+  });
+
 
   var selectedMusicianship; 
   document.getElementsByName("musician").forEach( function(elm) {
@@ -129,10 +157,14 @@ goldsmithsButton.addEventListener('click', (evt) => {
     }
   });
 
+
   db.collection('StudyData').add({
     id: participantId,
-    events: selectedEvents, 
+    instruments: selectedInstruments, 
     listening: selectedListening, 
+    newMusic: selectedNewMusic,
+    tune: selectedTune, 
+    beats: selectedBeats,
     musicianship: selectedMusicianship, 
     emotions1: selectedEmotions1,
     emotions2: selectedEmotions2, 

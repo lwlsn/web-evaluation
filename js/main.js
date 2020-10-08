@@ -1,43 +1,48 @@
-		function thirdDeleteAfterClick() {
-			var submitButton = document.getElementById("submit-vue");
-			var nextButton = document.getElementById("next-button-vue");
+// On submit button click, hide the button and add points to the database.. 
 
-			submitButton.style.visibility = "hidden";
-			nextButton.style.visibility = "visible";
+function thirdDeleteAfterClick() {
+		var submitButton = document.getElementById("submit-vue");
+		var nextButton = document.getElementById("next-button-vue");
 
-		}
+		submitButton.style.visibility = "hidden";
+    nextButton.style.visibility = "visible";
+    
+    const vueNextButton = document.querySelector('#next-button-vue');
+    const db = firebase.firestore();
+    const canvas = document.getElementById('canvas');
+    const rect = canvas.getBoundingClientRect();
+  
 
+    // var x = (event.clientX-rect.left)/340;
+    // var y = 1 - ((event.clientY-rect.top)/320);
 
-
-		// const vueNextButton = document.querySelector('#next-button-vue');
-
-
-		// vueNextButton.addEventListener('click', (evt) => {
-		// evt.preventDefault();
-		// // console.log(participantId);
-
-		// const rect = canvas.getBoundingClientRect();
-
-		// var x = (evt.clientX-rect.left)/320;
-		// var y = 1 - ((evt.clientY-rect.top)/320);
-
-		// var audio = document.getElementById('audio');
-		// var audioFile = audio.src;
-
-		// console.log(x, y);
-
-		// db.collection('StudyData').add({
-		// 	id: participantId, 
-		// 	xPos: x,
-		// 	yPos: y, 
-		// 	audio: audioFile
-		// })
-
-		// });
+    const x = rect.top;
+    const y = rect.bottom;
 
 
+    console.log(x,y);
+
+    var audio = document.getElementById('audio');
+    var audioFile = audio.src;
+
+    vueNextButton.addEventListener('click', (evt) => {
+      evt.preventDefault();
+  
+      db.collection('StudyData').add({
+        id: participantId,
+        xPos: x,
+        yPos: y, 
+        audio: audioFile
+      });
+    });
+}
 
 
+
+
+
+
+  /* Vue Interactive text  */
 
 
 
@@ -62,7 +67,7 @@ var paragraph2 = [
 var paragraph3 = [
 "Test 1/27", 
 "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once.",
-""
+"When you are happy with the rating, please press submit to record your rating."
 ]
 
 var paragraph4 = [
@@ -207,7 +212,13 @@ var paragraph29 = [
 
 var endParagraph = [
 "Thank you for your participation in this study.",
-"Your results have been submitted, goodbye!"]
+"Your results have been submitted, goodbye!",
+" "]
+
+
+var divColours = [
+ "#bbbbbb", "#dddddd"
+]
 
 var app = new Vue ({
   el:'#app-1', 
@@ -216,11 +227,17 @@ var app = new Vue ({
     message1:  "First, please complete the audio check on the next page to test the output of your headphones and adjust to a comfortable level." ,
     message2: " Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. Once this has been done, please complete the rest of the test in a quiet environment, free from distractions.",
     message3: " In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are. Use the provided grid to do this. The test section will not include any word prompts.",
-    percentage: 0
+    percentage: 0,
+    componentKey: 0
   }, 
   methods: {
 
     setNewValue: function() {
+
+      //get the contents div
+      var contents = document.getElementById('contents');
+      //get the audio element 
+      var audio = document.getElementById('audio');
 
       // window.location.reload(); 
       
@@ -231,87 +248,102 @@ var app = new Vue ({
       this.message2 = paragraph1[2];
       this.message3 = paragraph1[3];
       this.percentage = 100*(1/29); 
+
+      
       }
       if (count == 1) {
-        var spanMarker = document.getElementById('canvas-marker');
-        spanMarker.style.visibility = "hidden";
-
+      
+        contents.style.visibility = "visible";
         this.message0 = paragraph2[0];
         this.message1 = paragraph2[1];
         this.message2 = paragraph2[2];
         this.percentage = 100*(2/29);
       }
       if (count == 2) {
+        shuffle(divColours);
+        contents.style.backgroundColor = divColours[0] ;
         this.message0 = paragraph3[0];
         this.message1 = paragraph3[1];
         this.message2 = paragraph3[2];
         this.percentage = 100*(3/29);
       }
       if (count == 3) {
+        contents.style.backgroundColor = divColours[1] ;
         this.message0 = paragraph4[0];
         this.message1 = paragraph4[1];
         this.percentage = 100*(4/29);
       }
       if (count == 4) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph5[0];
         this.message1 = paragraph5[1];
         this.percentage = 100*(5/29);
       }
       if (count == 5) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph6[0];
         this.message1 = paragraph6[1];
         this.percentage = 100*(6/29);
       }
 
       if (count == 6) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph7[0];
         this.message1 = paragraph7[1];
         this.percentage = 100*(7/29);
       }
 
       if (count == 7) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph8[0];
         this.message1 = paragraph8[1];
         this.percentage = 100*(8/29);
       }     
       
       if (count == 8) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph9[0];
         this.message1 = paragraph9[1];
         this.percentage = 100*(9/29);
       }
 
       if (count == 9) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph10[0];
         this.message1 = paragraph10[1];
         this.percentage = 100*(10/29);
       }
 
       if (count == 10) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph11[0];
         this.message1 = paragraph11[1];
         this.percentage = 100*(11/29);
       }
 
       if (count == 11) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph12[0];
         this.message1 = paragraph12[1];
         this.percentage = 100*(12/29);
       }
 
       if (count == 12) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph13[0];
         this.message1 = paragraph13[1];
         this.percentage = 100*(13/29);
       }
 
       if (count == 13) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph14[0];
         this.message1 = paragraph14[1];
         this.percentage = 100*(14/29);
       }
 
       if (count == 14) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph15[0];
         this.message1 = paragraph15[1];
         this.percentage = 100*(15/29);
@@ -319,42 +351,49 @@ var app = new Vue ({
 
 
       if (count == 15) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph16[0];
         this.message1 = paragraph16[1];
         this.percentage = 100*(16/29);
       }
 
       if (count == 16) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph17[0];
         this.message1 = paragraph17[1];
         this.percentage = 100*(17/29);
       }
 
       if (count == 17) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph18[0];
         this.message1 = paragraph18[1];
         this.percentage = 100*(18/29);
       }
 
       if (count == 18) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph19[0];
         this.message1 = paragraph19[1];
         this.percentage = 100*(19/29);
       }
 
       if (count == 19) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph20[0];
         this.message1 = paragraph20[1];
         this.percentage = 100*(20/29);
       }
 
       if (count == 20) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph21[0];
         this.message1 = paragraph21[1];
         this.percentage = 100*(21/29);
       }
 
       if (count == 21) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph22[0];
         this.message1 = paragraph22[1];
         this.percentage = 100*(22/29);
@@ -362,62 +401,81 @@ var app = new Vue ({
 
 
       if (count == 22) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph23[0];
         this.message1 = paragraph23[1];
         this.percentage = 100*(23/29);
       }
 
       if (count == 23) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph24[0];
         this.message1 = paragraph24[1];
         this.percentage = 100*(24/29);
       }
 
       if (count == 24) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph25[0];
         this.message1 = paragraph25[1];
         this.percentage = 100*(25/29);
       }
 
       if (count == 25) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph26[0];
         this.message1 = paragraph26[1];
         this.percentage = 100*(26/29);
       }
 
       if (count == 26) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph27[0];
         this.message1 = paragraph27[1];
         this.percentage = 100*(27/29);
       }     
 
       if (count == 27) {
+        contents.style.backgroundColor = divColours[1];
         this.message0 = paragraph28[0];
         this.message1 = paragraph28[1];
         this.percentage = 100*(28/29);
       }
 
       if (count == 28) {
+        contents.style.backgroundColor = divColours[0];
         this.message0 = paragraph29[0];
         this.message1 = paragraph29[1];
         this.percentage = 100*(29/29);
       }
 
       else if (count >= 28) {
+        
         this.message0 = endParagraph[0];
         this.message1 = endParagraph[1];
-        var audio = document.getElementById('audio');
+        this.message2 = endParagraph[2];
+        
+        //hide miscellaneous stuff
         audio.style.visibility="hidden";
         var btnVue= $('#next-button-vue')
         btnVue.hide();
+        contents.style.visibility = "hidden";
       }
 
       count += 1;
 
       // console.log(count);
+    }, 
+
+    forceRerender: function() {
+      this.componentKey += 1;
     }
   }
 }) 
+
+
+
+/* Audio Element handling .. */
 
 
 //shuffle function to randomise playback order.. 
@@ -435,30 +493,50 @@ function shuffle(a) {
 
 
 
+// Random variable to control which test is given to the user .. 
+var x = Math.floor((Math.random() * 2));
+console.log ("x: " +  x);
+
 //Change the audio file onclick.. 
 var a=0;
 var audio = document.getElementById('audio');
 audio.src = "assets/sine.wav";
 audio.style.visibility = "visible";
-// contents of audio buffer .. 
-var audioFiles = 
-["assets/rhythms/LV_LA/LV_LA_1.wav", "assets/rhythms/LV_LA/LV_LA_2.wav", "assets/rhythms/LV_LA/LV_LA_3.wav",
-"assets/rhythms/MV_LA/MV_LA_1.wav", "assets/rhythms/MV_LA/MV_LA_2.wav", "assets/rhythms/MV_LA/MV_LA_3.wav",
-"assets/rhythms/HV_LA/HV_LA_1.wav", "assets/rhythms/HV_LA/HV_LA_2.wav", "assets/rhythms/HV_LA/HV_LA_3.wav",
-"assets/rhythms/LV_MA/LV_MA_1.wav", "assets/rhythms/LV_MA/LV_MA_2.wav", "assets/rhythms/LV_MA/LV_MA_3.wav",
-"assets/rhythms/MV_MA/MV_MA_1.wav", "assets/rhythms/MV_MA/MV_MA_2.wav", "assets/rhythms/MV_MA/MV_MA_3.wav",
-"assets/rhythms/HV_MA/HV_MA_1.wav", "assets/rhythms/HV_MA/HV_MA_2.wav", "assets/rhythms/HV_MA/HV_MA_3.wav",
-"assets/rhythms/LV_HA/LV_HA_1.wav", "assets/rhythms/LV_HA/LV_HA_2.wav", "assets/rhythms/LV_HA/LV_HA_3.wav",
-"assets/rhythms/MV_HA/MV_HA_1.wav", "assets/rhythms/MV_HA/MV_HA_2.wav", "assets/rhythms/MV_HA/MV_HA_3.wav",
-"assets/rhythms/HV_HA/HV_HA_1.wav", "assets/rhythms/HV_HA/HV_HA_2.wav", "assets/rhythms/HV_HA/HV_HA_3.wav"];
 
-var melodyFiles = [
-"assets/melodies/LV_LA/LV_LA_1.wav"
-];
+
+// contents of audio buffer, dependent on the outcome of the 
+
+if (x == 0) {
+
+var audioFiles = 
+  [
+    "assets/rhythms/LV_LA/LV_LA_1.wav", "assets/rhythms/LV_LA/LV_LA_2.wav", "assets/rhythms/LV_LA/LV_LA_3.wav",
+    "assets/rhythms/MV_LA/MV_LA_1.wav", "assets/rhythms/MV_LA/MV_LA_2.wav", "assets/rhythms/MV_LA/MV_LA_3.wav",
+    "assets/rhythms/HV_LA/HV_LA_1.wav", "assets/rhythms/HV_LA/HV_LA_2.wav", "assets/rhythms/HV_LA/HV_LA_3.wav",
+    "assets/rhythms/LV_MA/LV_MA_1.wav", "assets/rhythms/LV_MA/LV_MA_2.wav", "assets/rhythms/LV_MA/LV_MA_3.wav",
+    "assets/rhythms/MV_MA/MV_MA_1.wav", "assets/rhythms/MV_MA/MV_MA_2.wav", "assets/rhythms/MV_MA/MV_MA_3.wav",
+    "assets/rhythms/HV_MA/HV_MA_1.wav", "assets/rhythms/HV_MA/HV_MA_2.wav", "assets/rhythms/HV_MA/HV_MA_3.wav",
+    "assets/rhythms/LV_HA/LV_HA_1.wav", "assets/rhythms/LV_HA/LV_HA_2.wav", "assets/rhythms/LV_HA/LV_HA_3.wav",
+    "assets/rhythms/MV_HA/MV_HA_1.wav", "assets/rhythms/MV_HA/MV_HA_2.wav", "assets/rhythms/MV_HA/MV_HA_3.wav",
+    "assets/rhythms/HV_HA/HV_HA_1.wav", "assets/rhythms/HV_HA/HV_HA_2.wav", "assets/rhythms/HV_HA/HV_HA_3.wav"
+  ];
+
+}
+
+else if (x >= 1) {
+
+  var audioFiles = 
+  [
+    "assets/melodies/LV_LA/LV_LA_1.wav"
+  ];
+
+}
+
+
 
 function updateAudio() {
-  // var audio= document.getElementById('audio');
-  console.log(a);
+  
+  // console.log(a);
   if (a == 0) {
     shuffle(audioFiles);
     audio.style.visibility = "visible";
@@ -607,6 +685,9 @@ function updateAudio() {
 }
 
 
+
+/* Canvas toggling on and off in vue and submission to database */
+
 var b=0;
 
 function toggleCanvas() {
@@ -649,54 +730,14 @@ function toggleCanvas() {
 function buttonPressed() {
   updateAudio(); 
   toggleCanvas();
-  // Application.clicked();
-
-  const vueNextButton = document.querySelector('#next-button-vue');
-  const db = firebase.firestore();
-  const rect = canvas.getBoundingClientRect();
-
-  var x = (event.clientX-rect.left)/320;
-  var y = 1 - ((event.clientY-rect.top)/320);
-
-  var audio = document.getElementById('audio');
-  var audioFile = audio.src;
-
-  vueNextButton.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    console.log(x, y);
-  
-    db.collection('StudyData').add({
-      id: participantId,
-      xPos: x,
-      yPos: y, 
-      audio: audioFile
-    });
-  });
 }
 
 
 
 // email prize draw submission
 function clearText() {
-  var emailtextval = document.getElementById('email-text-input'); 
-  // emailtextval.value = "";
+  // var emailtextval = document.getElementById('email-text-input'); 
   var submittextval = document.getElementById('submit-message');
   submittextval.style.visibility = "visible";
 }
-
-// Show hide canvas ? << fix meee 
-// var canvas = document.getElementById('canvas');
-
-// function toggleCanvas() {
-//   btn = document.getElementById('visibility-button');
-//   if (btn.value == "hide") {
-//     btn.value = "show";
-//     document.getElementById('canvas').style.visibilty="hidden";
-//   } else {
-//     btn.value = "hide";
-//     document.getElementById('canvas').style.visibilty="visible";
-//   }
-
-// }
-
 

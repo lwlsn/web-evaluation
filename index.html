@@ -16,7 +16,7 @@
 	<!-- Include js scripts-->
 	<script src="js/dynamic.js"></script>
 	<script src="js/app.js"></script>
-	<script src="js/config.js"></script>
+	<!-- <script src="js/config.js"></script> -->
 
 	<!--Vue development version, includes helpful console warnings -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -40,10 +40,13 @@
 	</div>
 
 
+
 	<!-- introduction pages -->
 
 	<div class="page" id="study-introduction">
 		<div class="main" id="main1">
+
+
 			<h2>Introduction to the Study - Evaluating Models of Affective Response through Listener Perception of
 				Musical Patterns</h2>
 
@@ -65,26 +68,27 @@
 				minutes to complete.</p>
 
 			<p> After listening, you will be asked to give an evaluative rating of the perceived emotional content to
-				the audio. To do so, you be asked to place a slider on a 2-dimensional grid and rate the pieces listened
+				the audio. To do so, you be asked to place a marker on a 2-dimensional grid and rate the pieces listened
 				to and rate them in terms of how positive/negative they are and how high/low energy they are. </p>
-			
+
 			<br />
-			<p> 
-			If you wish to enter into the £100 voucher raffle prize draw, please enter your email below. Note this 
-			email address will not be associated with your results and data will still be anonymised. </p>
+			<p>
+				If you wish to enter into the £100 voucher raffle prize draw, please enter your email below. Note this
+				email address will not be associated with your results and data will still be anonymised. </p>
 
 
 			<input type="text" value="" id="email-text-input" style="width: 250px;" />
 			<br />
-			<input type="button" value="Submit" class="button2" id="email-submit-button"  onclick="clearText()" />
+			<input type="button" value="Submit" class="button2" id="email-submit-button" onclick="clearText()" />
 			<br />
-			<p style="visibility: hidden; color:green" id="submit-message">​ Your email has been entered into the prize draw!</p>
-			
+			<p style="visibility: hidden; color:green" id="submit-message">​ Your email has been entered into the prize
+				draw!</p>
+
 
 
 		</div>
-			
-		
+
+
 
 
 		<div class="navi">
@@ -150,8 +154,8 @@
 
 			<p>
 				<label class="container" id="consent">
-					I confirm that I am over 18 years of age. 
-					<input type ="checkbox" id="consent5" form="survey" value="yes">
+					I confirm that I am over 18 years of age.
+					<input type="checkbox" id="consent5" form="survey" value="yes">
 					<span class="checkmark"> </span>
 				</label>
 			</p>
@@ -170,7 +174,7 @@
 			$('#consent-button').click(function () {
 				//array of booleans checking whether each val has been clicked or not.. 
 				var checkboxTicked = [($('#consent1').prop('checked')), ($('#consent2').prop('checked')),
-				($('#consent3').prop('checked')), ($('#consent4').prop('checked')),($('#consent5').prop('checked')), ];
+				($('#consent3').prop('checked')), ($('#consent4').prop('checked')), ($('#consent5').prop('checked')),];
 				// console.log(checkboxTicked[0], checkboxTicked[1], checkboxTicked[2], checkboxTicked[3]);
 
 				var isOkay = false; // set variable to false, only allow to refresh to next page in update to true.
@@ -305,6 +309,11 @@
 				<label for="nationality"> </label>
 
 
+				<p> The genre(s) of music that I most commonly listen to are: </p>
+				<input type="text" id="genres" name="genres">
+				<label for="genres"> </label>
+
+
 
 				<div class="submit">
 					<p>
@@ -313,7 +322,6 @@
 				</div>
 
 			</form>
-
 
 		</div>
 
@@ -340,10 +348,7 @@
 		</script>
 
 
-
 	</div>
-
-
 
 	<!-- goldsmiths msi page -->
 
@@ -357,43 +362,42 @@
 
 				<p>Please answer the following questions as accurately as possible:</p>
 
-				<p>In the past twelve months, I have attended ... live music events:</p>
+
+				<p> I have engaged in regular practice of a musical instrument for ... years. (If you have played more
+					than one
+					instrument, please answer for the instrument you have played longest.) </p>
 
 				<p>
-				<div id="goldmsi-events">
+				<div id="goldmsi-instruments">
 
-					<label class="container"> 0-1
-						<input type="radio" name="events" id="events1" value="0-1">
+					<label class="container"> 0-1 year
+						<input type="radio" name="instruments" id="instruments1" value="0-1">
 						<span class="checkmark"></span>
 					</label>
 
-					<label class="container"> 2-3
-						<input type="radio" name="events" id="events2" value="2-3">
+					<label class="container"> 2-3 years
+						<input type="radio" name="instruments" id="instruments2" value="2-3">
 						<span class="checkmark"></span>
 					</label>
 
-					<label class="container"> 4-6
-						<input type="radio" name="events" id="events3" value="4-6">
-						<span class="checkmark"> </span>
-					</label>
-
-
-					<label class="container"> 7-10
-						<input type="radio" name="events" id="events4" value="7-10">
-						<span class="checkmark"> </span>
-					</label>
-
-
-					<label class="container"> 11+
-						<input type="radio" name="events" id="events5" value="11+">
+					<label class="container"> 4-5 years
+						<input type="radio" name="instruments" id="instruments3" value="4-5">
 						<span class="checkmark"></span>
 					</label>
 
+					<label class="container"> 6-9 years
+						<input type="radio" name="instruments" id="instruments4" value="6-9">
+						<span class="checkmark"></span>
+					</label>
+
+					<label class="container"> 10 + years
+						<input type="radio" name="instruments" id="instruments5" value="10+">
+						<span class="checkmark"></span>
+					</label>
 
 
 				</div>
 				</p>
-
 
 
 				<p> I listen attentively to music for ... daily:</p>
@@ -431,6 +435,110 @@
 						<span class="checkmark"></span>
 					</label>
 
+
+				</div>
+				</p>
+
+
+
+				<p> I keep track of new music that I come across:
+				<div id="goldmsi-newmusic">
+
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="newmusic" id="events1" value="-2">
+						<span class="checkmark"></span>
+					</label>
+
+					<label class="container"> Disagree
+						<input type="radio" name="newmusic" id="events2" value="-1">
+						<span class="checkmark"></span>
+					</label>
+
+					<label class="container"> Neither agree or disagree
+						<input type="radio" name="newmusic" id="events3" value="0">
+						<span class="checkmark"> </span>
+					</label>
+
+
+					<label class="container"> Agree
+						<input type="radio" name="newmusic" id="events4" value="1">
+						<span class="checkmark"> </span>
+					</label>
+
+
+					<label class="container"> Strongly agree
+						<input type="radio" name="newmusic" id="events5" value="2">
+						<span class="checkmark"></span>
+					</label>
+
+				</div>
+
+				</p>
+
+
+				<p> I can usually tell when people sing or play out of tune. </p>
+
+				<p>
+				<div id="goldmsi-tune">
+
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="tune" id="tune1" value="-2">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Disagree
+						<input type="radio" name="tune" id="tune2" value="-1">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Neither agree or disagree
+						<input type="radio" name="tune" id="tune3" value="0">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Agree
+						<input type="radio" name="tune" id="tune4" value="1">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Strongly Agree
+						<input type="radio" name="tune" id="tune5" value="2">
+						<span class="checkmark"> </span>
+					</label>
+
+				</div>
+				</p>
+
+
+				<p> I can usually tell when people sing or play out of time with the beat. </p>
+
+				<p>
+				<div id="goldmsi-beat">
+
+					<label class="container"> Strongly Disagree
+						<input type="radio" name="beat" id="beat1" value="-2">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Disagree
+						<input type="radio" name="beat" id="beat2" value="-1">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Neither agree or disagree
+						<input type="radio" name="beat" id="beat3" value="0">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Agree
+						<input type="radio" name="beat" id="beat4" value="1">
+						<span class="checkmark"> </span>
+					</label>
+
+					<label class="container"> Strongly Agree
+						<input type="radio" name="beat" id="beat5" value="2">
+						<span class="checkmark"> </span>
+					</label>
 
 				</div>
 				</p>
@@ -542,7 +650,7 @@
 				</p>
 
 
-				<p>I am able to talk about the emotions that a piece of music evokes for me: </p>
+				<p> I am able to talk about the emotions that a piece of music evokes for me: </p>
 				<p>
 				<div id="goldmsi-emotions3">
 
@@ -573,6 +681,9 @@
 					</label>
 				</div>
 				</p>
+
+
+
 
 
 				<div class="submit">
@@ -637,36 +748,42 @@
 			<p id="message4" class="message-tag"> {{ message3 }} </p>
 
 
-			<p>
-			<div class="audio-player">
+			<div id="contents" class="contents" style="visibility:hidden;">
 
-				<audio id="audio" class="audio-tag" controls>
-					<source src="assets/HV-LA.wav" id="track" type="audio/wav">
-					Your browser does not support the audio element
-				</audio>
+				<p>
+				<div class="audio-player">
+
+					<audio id="audio" class="audio-tag" controls>
+						<source src="assets/HV-LA.wav" id="track" type="audio/wav">
+						Your browser does not support the audio element
+					</audio>
+				</div>
+
+				</p>
+
+
+
+				<div class="application" style="margin:0px; padding:0px;">
+					<canvas width="320" height="320" id="canvas" style="position:relative; top:40%; left:37%;">
+						<span id="canvas-marker"></span>
+						Your browser does not support the HTML5 Canvas
+					</canvas>
+					<div style="font-size:40px;font-weight:bold; position:relative; top:-400px; left:45%" id="label">
+					</div>
+				</div>
+
+
+
+				<button id="submit-vue" class="submitButton" onclick="thirdDeleteAfterClick()"
+					style="visibility: hidden;"> Submit </button>
+
+
 			</div>
-
-			</p>
-
-
-
-			<div class="application" style="margin:0px; padding:0px;">
-				<canvas width="320" height="320" id="canvas" style="position:relative; top:40%; left:37%;">
-					<span id="canvas-marker"></span>
-					Your browser does not support the HTML5 Canvas
-				</canvas>
-				<div style="font-size:40px;font-weight:bold; position:relative; top:-400px; left:45%" id="label"> </div>
-			</div>
-
-		
-			<button id="submit-vue" class="button" onclick="thirdDeleteAfterClick()"
-				style="visibility: hidden;"> Submit </button>
-		
-
 
 			<div class="navi">
 				<p>
-					<button id="next-button-vue" v-on:click="setNewValue()" onclick="buttonPressed()" class="button">
+					<button id="next-button-vue" v-on:click="setNewValue()" :key="componentKey"
+						onclick="buttonPressed()" class="button">
 						Next </button>
 					<a href="mailto:elizabeth.wilson@qmul.ac.uk"> contact </a>
 					<span id="page-ref" class="page-ref"> </span>
@@ -677,11 +794,13 @@
 
 
 
+
 		</div>
 
 
 
 	</div>
+
 
 
 

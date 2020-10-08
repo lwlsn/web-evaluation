@@ -175,7 +175,6 @@ var Application = {
       this.lastClick = new Date();
     }
 
-
   },
 
   sendPosition(canvas, event) {
@@ -207,7 +206,7 @@ var Application = {
     var x = (event.clientX-rect.left)/320;
     var y = 1 - ((event.clientY-rect.top)/320);
 
-    // console.log(x,y);
+    console.log(x,y);
 
     this.label.innerHTML = this.findMood(x, y);
   },
