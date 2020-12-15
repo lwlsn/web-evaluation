@@ -1,39 +1,39 @@
 // On submit button click, hide the button and add points to the database.. 
 
-function thirdDeleteAfterClick() {
+function thirdDeleteAfterClick( ) {
 		var submitButton = document.getElementById("submit-vue");
-		var nextButton = document.getElementById("next-button-vue");
+    var nextButton = document.getElementById("next-button-vue");
+    
+
 
 		submitButton.style.visibility = "hidden";
     nextButton.style.visibility = "visible";
     
     const vueNextButton = document.querySelector('#next-button-vue');
     const db = firebase.firestore();
-    const canvas = document.getElementById('canvas');
-    const rect = canvas.getBoundingClientRect();
-  
-
-    // var x = (event.clientX-rect.left)/340;
-    // var y = 1 - ((event.clientY-rect.top)/320);
-
-    const x = rect.top;
-    const y = rect.bottom;
 
 
-    console.log(x,y);
-
-    var audio = document.getElementById('audio');
-    var audioFile = audio.src;
 
     vueNextButton.addEventListener('click', (evt) => {
       evt.preventDefault();
+
+    const canvas = document.querySelector('canvas');
+    const rect = canvas.getBoundingClientRect();
+
+    var x = (evt.clientX-rect.left)/320;
+    var y = 1 - ((evt.clientY-rect.top)/320);
   
-      db.collection('StudyData').add({
-        id: participantId,
-        xPos: x,
-        yPos: y, 
-        audio: audioFile
-      });
+    console.log(x, y);
+
+    var audio = document.getElementById('audio');
+    var audioFile = audio.src;
+  
+    //   db.collection('TestData').add({
+    //     id: participantId,
+    //     xPos: x,
+    //     yPos: y, 
+    //     audio: audioFile
+    //   });
     });
 }
 
@@ -72,22 +72,26 @@ var paragraph3 = [
 
 var paragraph4 = [
   "Test 2/27", 
-  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once.",
+  "When you are happy with the rating, please press submit to record your rating."
 ]
 
 var paragraph5 = [
   "Test 3/27", 
-  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once.",
+  "When you are happy with the rating, please press submit to record your rating."
 ]
 
 var paragraph6 = [
   "Test 4/27",
-  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once.",
+  "When you are happy with the rating, please press submit to record your rating."
 ]
 
 var paragraph7 = [
   "Test 5/27",
-  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once."
+  "Please listen to the audio clip below and then please rate your emotional response to the audio just listened to by placing the mouse on the 2-d grid and clicking once.",
+  "When you are happy with the rating, please press submit to record your rating."
 ]
 
 var paragraph8 = [
@@ -223,10 +227,10 @@ var divColours = [
 var app = new Vue ({
   el:'#app-1', 
   data: {
-    message0: " Welcome to the test section. This section will explain what you need to do to complete the test.", 
+    message0: "Welcome to the test section. This section will explain what you need to do to complete the test.", 
     message1:  "First, please complete the audio check on the next page to test the output of your headphones and adjust to a comfortable level." ,
-    message2: " Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. Once this has been done, please complete the rest of the test in a quiet environment, free from distractions.",
-    message3: " In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are. Use the provided grid to do this. The test section will not include any word prompts.",
+    message2: "Following this, please complete the first test to familiarise yourself with how to use the interface in response to the audio presented. Once this has been done, please complete the rest of the test in a quiet environment, free from distractions.",
+    message3: "In this test, You will be asked to rate various audio clips based on two factors: how positive/negative and how high energy/low energy they are. Use the provided grid to do this. The test section will not include any word prompts.",
     percentage: 0,
     componentKey: 0
   }, 
@@ -527,7 +531,15 @@ else if (x >= 1) {
 
   var audioFiles = 
   [
-    "assets/melodies/LV_LA/LV_LA_1.wav"
+    "assets/melodies/LV_LA/LV_LA_1.wav", "assets/melodies/LV_LA/LV_LA_2.wav", "assets/melodies/LV_LA/LV_LA_3.wav",
+    "assets/melodies/MV_LA/MV_LA_1.wav", "assets/melodies/MV_LA/MV_LA_2.wav", "assets/melodies/MV_LA/MV_LA_3.wav",
+    "assets/melodies/HV_LA/HV_LA_1.wav", "assets/melodies/HV_LA/HV_LA_2.wav", "assets/melodies/HV_LA/HV_LA_3.wav",
+    "assets/melodies/LV_MA/LV_MA_1.wav", "assets/melodies/LV_MA/LV_MA_2.wav", "assets/melodies/LV_MA/LV_MA_3.wav",
+    "assets/melodies/MV_MA/MV_MA_1.wav", "assets/melodies/MV_MA/MV_MA_2.wav", "assets/melodies/MV_MA/MV_MA_3.wav",
+    "assets/melodies/HV_MA/HV_MA_1.wav", "assets/melodies/HV_MA/HV_MA_2.wav", "assets/melodies/HV_MA/HV_MA_3.wav",
+    "assets/melodies/LV_HA/LV_HA_1.wav", "assets/melodies/LV_HA/LV_HA_2.wav", "assets/melodies/LV_HA/LV_HA_3.wav",
+    "assets/melodies/MV_HA/MV_HA_1.wav", "assets/melodies/MV_HA/MV_HA_2.wav", "assets/melodies/MV_HA/MV_HA_3.wav",
+    "assets/melodies/HV_HA/HV_HA_1.wav", "assets/melodies/HV_HA/HV_HA_2.wav", "assets/melodies/HV_HA/HV_HA_3.wav"
   ];
 
 }

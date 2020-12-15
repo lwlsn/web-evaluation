@@ -22,7 +22,7 @@ const emailButton = document.querySelector('#email-submit-button');
 const participantButton = document.querySelector('#submit-demographics');
 const goldsmithsButton = document.querySelector('#submit-goldsmiths');
 // const vueSubmitButton = document.querySelector('#submit-vue');
-// const vueNextButton = document.querySelector('#next-button-vue');
+const vueNextButton = document.querySelector('#next-button-vue');
 
 
 
@@ -55,7 +55,7 @@ participantButton.addEventListener('click', (evt) => {
   var givenFormative = document.getElementById('formative-data').value;
   var givenGenres = document.getElementById('genres').value;
 
-  db.collection('StudyData').add({
+  db.collection('ParticipantData').add({
      id: participantId,
      employment: selectedEmployment, 
      age: selectedAge,
@@ -74,7 +74,7 @@ emailButton.addEventListener('click', (evt)=> {
   var emailText; 
   emailText = document.getElementById('email-text-input').value;
   
-  db.collection('StudyData').add({
+  db.collection('EmailData').add({
     id: participantId,
     email: emailText
   })
@@ -158,7 +158,7 @@ goldsmithsButton.addEventListener('click', (evt) => {
   });
 
 
-  db.collection('StudyData').add({
+  db.collection('ParticipantData').add({
     id: participantId,
     instruments: selectedInstruments, 
     listening: selectedListening, 
@@ -173,6 +173,9 @@ goldsmithsButton.addEventListener('click', (evt) => {
   })
 
 });
+
+
+
 
 
 

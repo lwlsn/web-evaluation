@@ -72,7 +72,7 @@ function checkRequired(checksum) {
     if (currentItem.tagName == "TEXTAREA" || currentItem.tagName == "SELECT") {
       if (currentItem.value != 0) {
         counter++;
-        console.log(currentItem.value);
+        //console.log(currentItem.value);
       }
     }
     else if (currentItem.type = "radio") {

@@ -1,0 +1,81 @@
+<html>
+    <head>
+            <title>Firebase FireStore</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+            <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+         <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+         <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+         </script> 
+
+         	<!-- Integrate Firebase into project -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+    
+
+
+    </head>
+
+    <div width='100%' style="padding:4px; background-color:#c41f14; color:#ffffff; ">
+        <b>firebase - firestore test</b>    
+    </div>
+
+
+    <script>
+        var firebaseConfig = {
+        apiKey: "AIzaSyBF9mqWu9BHIvCI4iN_1SQxMXauNXIt21A",
+        authDomain: "listening-study-1.firebaseapp.com",
+        databaseURL: "https://listening-study-1.firebaseio.com",
+        projectId: "listening-study-1",
+        storageBucket: "listening-study-1.appspot.com",
+        messagingSenderId: "63211670094",
+        appId: "1:63211670094:web:6ceab0989825d28b89d11f"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+
+        db.collection('TestData').get().then((snapshot)=>{
+             getInfo(snapshot.docs);
+        });
+
+        function getInfo(data) {
+            data.forEach(doc => {
+                var info = doc.data();
+                var myJSON = JSON.stringify(info);
+                console.log(myJSON);
+
+
+                // var json = myJSON.items;
+                // var fields = Object.keys(json[0]);
+                // var replacer = function(key, value) { return value === null ? '' : value } 
+                // var csv = json.map(function(row){
+                //     return fields.map(function(fieldName){
+                //     return JSON.stringify(row[fieldName], replacer)
+                //     }).join(',')
+                // })  
+                // csv.unshift(fields.join(',')) // add header column
+                // csv = csv.join('\r\n');
+                // console.log(csv)
+
+            });
+
+        }
+
+
+
+
+    </script>
+
+    <!-- Version 2 if needed 
+
+    <script>
+        
+    </script>
+
+    -->
+
+
+</html>
